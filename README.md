@@ -16,3 +16,9 @@
 
 
 ## 5. Align the reads to the reference genome using BWA
+a) Index reference genome
+
+b) Align reads to reference genome
+
+
+## 6. Mark duplicates using Picard
