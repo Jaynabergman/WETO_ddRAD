@@ -9,10 +9,10 @@
 ## 2. Demultiplex using STACKS (process_radtags)
 
 
-## 3. Check read quality wih FastP
+## 3. Check read quality wih fastp
 
 
-## 4. Summarize Fastp results with multiqc
+## 4. Summarize fastp results with multiqc
 
 
 ## 5. Align the reads to the reference genome using BWA
@@ -21,4 +21,4 @@ a) Index reference genome
 b) Align reads to reference genome
 
 
-## 6. Mark duplicates using Picard
+## 6. Mark PCR duplicates using Picard
