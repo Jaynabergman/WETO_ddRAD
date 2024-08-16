@@ -14,12 +14,21 @@ The fastq files that we have received from Genome Qubec represent a single multi
    - path to output folder
 2) -1
    - R1 input file (fastq.gz)
-5) -2  R2 input file (fastq.gz)
-6) -b  barcode file
-7) --renz-1  first restriction enzyme used in library prep
-8) --renz-2  second restiction enzyme used in library prep
-9) --inline-null  Indicates that the barcodes are only on the foward read and is inline with the sequence
-10) -r  rescues barcodes and RAD-Tag cut sites (what does this mean?)
-11) -c  cleans data by removing any read that has an uncalled base
-12) -q  discards reads with low quality scores (Threshold is a Phred score of 10)
-13) -D  writes a file with the discarded reads so we don't lose this information
+3) -2
+   - R2 input file (fastq.gz)
+4) -b
+   - barcode file
+5) --renz-1
+   - first restriction enzyme used in library prep
+6) --renz-2
+   - second restiction enzyme used in library prep
+7) --inline-null
+   - Indicates that the barcodes are only on the foward read and is inline with the sequence
+8) -r
+   - rescues barcodes and RAD-Tag cut sites (what does this mean?)
+9) -c
+    - cleans data by removing any read that has an uncalled base
+10) -q
+    - discards reads with low quality scores (Threshold is a Phred score of 10)
+11) -D
+    - writes a file with the discarded reads so we don't lose this information
