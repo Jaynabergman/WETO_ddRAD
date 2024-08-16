@@ -11,7 +11,7 @@ The fastq files that we have received from Genome Qubec represent a single multi
   
 ### Flags  
 1) -o
-2)   path to output folder
+  path to output folder
 3) -1  R1 input file (fastq.gz)
 4) -2  R2 input file (fastq.gz)
 5) -b  barcode file
