@@ -49,4 +49,8 @@ mkdir -p $outfolder
 -b $barcodes --renz-1 $renz1 --renz-2 $renz2 --inline-null -r -c -q -D
 
 ```
+command line
+```
+sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
+```
 
