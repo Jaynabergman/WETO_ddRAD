@@ -5,8 +5,8 @@
 The fastq files that we have received from Genome Qubec represent a single multiplexed plate of sequences (see *Understanding_the_data* for more details). The first thing we have to do to process the raw reads is demultiplex the reads in STACKS using the **process_radtags** program. This program will sort the raw reads using the unique barcodes to recover the individual samples from the library.   
   
 ### Inputs   
-1) The foward (R1) raw fastq.gz file
-2) The reverse (R2) raw fastq.gz file
+1) The foward (R1) raw fastq.gz file from Genome Quebec
+2) The reverse (R2) raw fastq.gz file from Genome Quebec
 3) Barcode file: The program needs to be told which barcodes to expect. The barcodes will be specific for the enzyme pair that was used during library prep (this is where you will get the barcode list). The barcode file will be a text file (.txt) with one to two columns, separated by a tab. The first column is the barcodes and the second columm (optional) is for if you want to rename the output files.
   
 ### Flags  
@@ -53,4 +53,14 @@ command line
 ```
 sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
 ```
-
+### Outputs
+1) **process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the total_raw_read_counts:
+```
+Total Sequences         235868790
+Barcode Not Found       647230         0.3%
+Low Quality             1804214        0.8%
+RAD Cutsite Not Found   1567175        0.7%
+Retained Reads          231850171     98.3%
+Properly Paired         114362730     97.0%
+```
+2) Four files for each individual because we are using paired-end reads (the kept reads: sample.1.fq and sample.2.fq; the discareded reads: sample.rem.1.fq and sample.rem.2.fq)
