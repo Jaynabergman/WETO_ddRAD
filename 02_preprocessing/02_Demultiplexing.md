@@ -27,7 +27,7 @@ process_radtags.sh
 
 ```
 #!/bin/bash
-#SBATCH -c 8
+#SBATCH -c 1
 #SBATCH --mem=64GB
 #SBATCH --account=def-leeyaw-ab
 #SBATCH --time=2-12:00
@@ -45,7 +45,7 @@ renz2=$6
 
 mkdir -p $outfolder
 
-~/local/bin/process_radtags --threads 8 -o $outfolder -1 $r1file -2 $r2file \
+~/local/bin/process_radtags --threads 1 -o $outfolder -1 $r1file -2 $r2file \
 -b $barcodes --renz-1 $renz1 --renz-2 $renz2 --inline-null -r -c -q -D
 
 ```
