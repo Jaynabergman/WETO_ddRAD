@@ -54,7 +54,7 @@ command line
 sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
 ```
 ### Outputs
-1) **process_radtags.log**:
+**process_radtags.log**:
    This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the total_raw_read_counts:
 ```
 Total Sequences         235868790
@@ -64,4 +64,8 @@ RAD Cutsite Not Found   1567175        0.7%
 Retained Reads          231850171     98.3%
 Properly Paired         114362730     97.0%
 ```
-2) Four files for each individual because we are using paired-end reads (the kept reads: sample.1.fq and sample.2.fq; the discareded reads: sample.rem.1.fq and sample.rem.2.fq)
+Four files for each individual:
+1) sample.1.fq (forward reads that will be kept)
+2) sample.2.fq (reverse reads that will be kept)
+3) sample.rem.1.fq (forward reads that were removed because they didnt meet the flag requirements)
+4) sample.rem.2.fq (reverse reads that were removed because they didnt meet the flag requirements)
