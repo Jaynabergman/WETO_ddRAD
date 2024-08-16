@@ -10,7 +10,7 @@ The fastq files that we have received from Genome Qubec represent a single multi
 3) Barcode file: The program needs to be told which barcodes to expect. The barcodes will be specific for the enzyme pair that was used during library prep (this is where you will get the barcode list). The barcode file will be a text file (.txt) with one to two columns, separated by a tab. The first column is the barcodes and the second columm (optional) is for if you want to rename the output files.
   
 ### Flags  
-1) -o
+ -o
    - path to output folder
 2) -1
    - R1 input file (fastq.gz)
