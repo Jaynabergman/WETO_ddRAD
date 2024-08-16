@@ -22,7 +22,7 @@ The fastq files that we have received from Genome Qubec represent a single multi
 `-q` discards reads with low quality scores (Threshold is a Phred score of 10)
 `-D` writes a file with the discarded reads so we don't lose this information
 
-### Script
+### Running process_radtags
 process_radtags.sh
 
 ```
