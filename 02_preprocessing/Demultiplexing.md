@@ -10,18 +10,18 @@ The fastq files that we have received from Genome Qubec represent a single multi
 3) Barcode file: The program needs to be told which barcodes to expect. The barcodes will be specific for the enzyme pair that was used during library prep (this is where you will get the barcode list). The barcode file will be a text file (.txt) with one to two columns, separated by a tab. The first column is the barcodes and the second columm (optional) is for if you want to rename the output files.
   
 ### Flags  
-`-o` path to output folder
-`-1` R1 input file (fastq.gz)
-`-2` R2 input file (fastq.gz)
-`-b` barcode file
-`--renz-1` first restriction enzyme used in library prep
-`--renz-2` second restiction enzyme used in library prep
-`--inline-null` indicates that the barcodes are only on the foward read and is inline with the sequence
-`-r` rescues barcodes and RAD-Tag cut sites (what does this mean?)
-`-c` cleans data by removing any read that has an uncalled base
-`-q` discards reads with low quality scores (Threshold is a Phred score of 10)
-`-D` writes a file with the discarded reads so we don't lose this information
-
+`-o` path to output folder  
+`-1` R1 input file (fastq.gz)  
+`-2` R2 input file (fastq.gz)  
+`-b` barcode file  
+`--renz-1` first restriction enzyme used in library prep  
+`--renz-2` second restiction enzyme used in library prep  
+`--inline-null` indicates that the barcodes are only on the foward read and is inline with the sequence  
+`-r` rescues barcodes and RAD-Tag cut sites (what does this mean?)  
+`-c` cleans data by removing any read that has an uncalled base  
+`-q` discards reads with low quality scores (Threshold is a Phred score of 10)  
+`-D` writes a file with the discarded reads so we don't lose this information  
+  
 ### Running process_radtags
 process_radtags.sh
 
