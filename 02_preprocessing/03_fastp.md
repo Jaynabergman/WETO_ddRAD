@@ -6,6 +6,6 @@
 
 ### Flags
 
-### Running Fastp
+## Running Fastp
 
 ### Outputs
