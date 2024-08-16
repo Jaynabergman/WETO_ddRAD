@@ -1,6 +1,6 @@
 # Demultiplexing
 <br>
-## Background
+##Background
 <br>
 The fastq files that we have received from Genome Qubec represent a single multiplexed plate of sequences (see _Understanding.the.data_ for more details). The first thing we have to do to process the raw reads is demultiplex the reads in STACKS using the *process_radtags* program. This program will sort the raw reads using the unique barcodes to recover the individual samples from the library. 
 <br>
