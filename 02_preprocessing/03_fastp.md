@@ -32,4 +32,5 @@ fastp -f 5 -F 5 --dedup --dup_calc_accuracy 6 -l 50 -p -P 1 --trim_poly_g \
       -O ${namearr[1]%.fastq.gz}_T.fastq.gz -h ${namearr[2]}.html \
 	  -j ${namearr[2]}.fastp.json
 ```
+
 ### Outputs
