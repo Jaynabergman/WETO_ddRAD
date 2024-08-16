@@ -10,8 +10,7 @@ The fastq files that we have received from Genome Qubec represent a single multi
 3) Barcode file: The program needs to be told which barcodes to expect. The barcodes will be specific for the enzyme pair that was used during library prep (this is where you will get the barcode list). The barcode file will be a text file (.txt) with one to two columns, separated by a tab. The first column is the barcodes and the second columm (optional) is for if you want to rename the output files.
   
 ### Flags  
- 1) -o
-    - path to output folder
+'-o'    - path to output folder
 2) -1
    - R1 input file (fastq.gz)
 3) -2
@@ -32,3 +31,33 @@ The fastq files that we have received from Genome Qubec represent a single multi
     - discards reads with low quality scores (Threshold is a Phred score of 10)
 11) -D
     - writes a file with the discarded reads so we don't lose this information
+
+### Script
+process_radtags.sh (writen by JE)
+
+```
+#!/bin/bash
+#SBATCH -c 8
+#SBATCH --mem=64GB
+#SBATCH --account=def-leeyaw-ab
+#SBATCH --time=2-12:00
+#SBATCH -o proc_radt_%A.out
+#SBATCH -e proc_radt_%A.err
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=jencisor@uottawa.ca
+
+r1file=$1
+r2file=$2
+outfolder=$3
+barcodes=$4
+renz1=$5
+renz2=$6
+
+mkdir -p $outfolder
+
+~/local/bin/process_radtags --threads 8 -o $outfolder -1 $r1file \
+    -2 $r2file -b $barcodes --renz-1 $renz1 --renz-2 $renz2 \
+    --inline-null -r -c -q -D
+
+```
+
