@@ -54,7 +54,8 @@ command line
 sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
 ```
 ### Outputs
-1) **process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the total_raw_read_counts:
+1) **process_radtags.log**:
+   This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the total_raw_read_counts:
 ```
 Total Sequences         235868790
 Barcode Not Found       647230         0.3%
