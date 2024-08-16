@@ -10,30 +10,20 @@ The fastq files that we have received from Genome Qubec represent a single multi
 3) Barcode file: The program needs to be told which barcodes to expect. The barcodes will be specific for the enzyme pair that was used during library prep (this is where you will get the barcode list). The barcode file will be a text file (.txt) with one to two columns, separated by a tab. The first column is the barcodes and the second columm (optional) is for if you want to rename the output files.
   
 ### Flags  
-`-o`: path to output folder
-2) -1
-   - R1 input file (fastq.gz)
-3) -2
-   - R2 input file (fastq.gz)
-4) -b
-   - barcode file
-5) --renz-1
-   - first restriction enzyme used in library prep
-6) --renz-2
-   - second restiction enzyme used in library prep
-7) --inline-null
-   - Indicates that the barcodes are only on the foward read and is inline with the sequence
-8) -r
-   - rescues barcodes and RAD-Tag cut sites (what does this mean?)
-9) -c
-    - cleans data by removing any read that has an uncalled base
-10) -q
-    - discards reads with low quality scores (Threshold is a Phred score of 10)
-11) -D
-    - writes a file with the discarded reads so we don't lose this information
+`-o` path to output folder
+`-1` R1 input file (fastq.gz)
+`-2` R2 input file (fastq.gz)
+`-b` barcode file
+`--renz-1` first restriction enzyme used in library prep
+`--renz-2` second restiction enzyme used in library prep
+`--inline-null` indicates that the barcodes are only on the foward read and is inline with the sequence
+`-r` rescues barcodes and RAD-Tag cut sites (what does this mean?)
+`-c` cleans data by removing any read that has an uncalled base
+`-q` discards reads with low quality scores (Threshold is a Phred score of 10)
+`-D` writes a file with the discarded reads so we don't lose this information
 
 ### Script
-process_radtags.sh (writen by JE)
+process_radtags.sh
 
 ```
 #!/bin/bash
@@ -44,7 +34,7 @@ process_radtags.sh (writen by JE)
 #SBATCH -o proc_radt_%A.out
 #SBATCH -e proc_radt_%A.err
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=jencisor@uottawa.ca
+#SBATCH --mail-user=jberg031@uottawa.ca
 
 r1file=$1
 r2file=$2
@@ -55,9 +45,8 @@ renz2=$6
 
 mkdir -p $outfolder
 
-~/local/bin/process_radtags --threads 8 -o $outfolder -1 $r1file \
-    -2 $r2file -b $barcodes --renz-1 $renz1 --renz-2 $renz2 \
-    --inline-null -r -c -q -D
+~/local/bin/process_radtags --threads 8 -o $outfolder -1 $r1file -2 $r2file \
+-b $barcodes --renz-1 $renz1 --renz-2 $renz2 --inline-null -r -c -q -D
 
 ```
 
