@@ -13,11 +13,11 @@ array_fastp.sh
 #SBATCH -c 4
 #SBATCH --mem=32GB
 #SBATCH --time=0-8:00
-#SBATCH --account=def-leeyaw-ab
+#SBATCH --account=NAME
 #SBATCH -o arr_fastp_%A_%a.out
 #SBATCH -e arr_fastp_%A_%a.err
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=email
+#SBATCH --mail-user=EMAIL
 
 module load StdEnv/2020
 module load fastp/0.23.4
