@@ -1,13 +1,18 @@
 # WETO ddRAD pipeline 2024
 
-## Data Info
+## Project Overview
 
 
-## 1. Upload sequenced data on server and check file quality
+## 01_
 
 
-## 2. Demultiplex using STACKS (process_radtags)
+## 02_Prepocessing
 
+### 01_Data_information
+
+### 02_Demultiplexing
+
+### 03_Fastp
 
 ## 3. Check read quality wih fastp
 
