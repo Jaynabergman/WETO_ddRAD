@@ -54,8 +54,7 @@ command line
 sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
 ```
 ### Outputs
-**process_radtags.log**:
-   This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts*:
+**process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which we can use to see the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality.
 ```
 Total Sequences         235868790
 Barcode Not Found       647230         0.3%
