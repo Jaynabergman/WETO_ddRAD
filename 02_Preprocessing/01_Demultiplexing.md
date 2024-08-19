@@ -29,12 +29,12 @@ process_radtags.sh
 #!/bin/bash
 #SBATCH -c 1
 #SBATCH --mem=64GB
-#SBATCH --account=def-leeyaw-ab
+#SBATCH --account=NAME
 #SBATCH --time=2-12:00
 #SBATCH -o proc_radt_%A.out
 #SBATCH -e proc_radt_%A.err
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=jberg031@uottawa.ca
+#SBATCH --mail-user=EMAIL
 
 r1file=$1
 r2file=$2
