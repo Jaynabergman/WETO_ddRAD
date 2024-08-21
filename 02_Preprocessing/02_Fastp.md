@@ -1,11 +1,34 @@
 # FastP
 
 ## Background
-
+After the reads are demultiplexed, we have Fastq files for each individual. These Fastq files need to go through preprocessing steps to ensure quality control before they can be used for any downstream analysis. These steps typically include 1) trimming adapters, and 2) prunning data that does not meet a set quality threshold.
 ### Inputs
 
 ### Flags
-`f`: 
+`-i` Read1 input file name  \
+`-I` Read2 input file name  \
+`-o` Read1 output file name  \
+`-O` Read2 output file name  \
+`-j` Saves the output as a json format and sets the file name.  \
+  \
+`f` This value indicates how many bases to trim at the front of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed reads and remove the number of bases that are identical at the beginning of all the reads. This value was set to 5.  \
+  \
+`F` This value indicates how many bases to trim at the front of read2. This value was set to 5. **Should this always be identical to -f?**  **Why is tail trimming not needed?**  \
+  \
+`--dedup` This flag enables deduplication so duplicated reads/pairs of reads are dropped.  \
+  \
+`--dup_calc_accuracy` This sets the accuracy level used to calculate duplication. The value can range between 1 to 6, with 6 being the highest level of accuracy (which also uses more memory and will take more time running).  \
+  \
+`-l` This is the minimum length that reads are required to be. Reads are discarded if they are short than this. **How do you decided on this value?**  \
+  \
+`-p` Enables overrepresented sequence analysis  \
+  \
+`-P` **I dont understand this**  \
+  \
+`--trim_poly_g` This enforces that polyG tail trimming is turned on. This is important to enable for Illumina NovaSeq data (turned on by default for Illumina data), because read tails may have access Gs since G means no signal in the Illumina two-color systems. The default length is 10 to detect a polyG tail.   \
+  \
+`--cut_right` Moves the sliding window from the front of the read to the tail when assessing read quality. If the window reaches quality that is below one of the given thresholds, than the bases in the window and to the right of the window will be dropped. 
+
 ## Running Fastp
 array_fastp.sh
 ```
