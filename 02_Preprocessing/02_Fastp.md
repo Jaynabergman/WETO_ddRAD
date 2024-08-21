@@ -5,7 +5,7 @@
 ### Inputs
 
 ### Flags
-
+`f`: 
 ## Running Fastp
 array_fastp.sh
 ```
