@@ -5,9 +5,10 @@ After the reads are demultiplexed, we have Fastq files for each individual. Thes
   \
 The following script is written as an array job which allows many jobs to be submitted at once through a single script.     
   \
-We will then use the progrma **multiqc** to aggregate the fastp results for each individual into a single report. 
+The program **multiqc** is then used to aggregate the fastp results for each individual into a single report to easily read it. 
 ### Inputs
-
+1. The demultiplexed fastq files for each individual.
+2. A text file that has a list of the individual files. This is needed to submit the script as an array job.
 ### Flags
 `-i` Read1 input file name  \
 `-I` Read2 input file name  \
@@ -66,5 +67,6 @@ sbatch
 ### Outputs
 
 ## Multiqc
+Fastp files were downloaded to my desktop from the cloud. 
 
 
