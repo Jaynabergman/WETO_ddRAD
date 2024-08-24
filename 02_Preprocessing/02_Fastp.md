@@ -1,7 +1,7 @@
 # FastP
 
 ## Background
-After the reads are demultiplexed, we have Fastq files for each individual. These Fastq files need to go through preprocessing steps to ensure quality control before they can be used for any downstream analysis. These steps typically include 1) trimming adapters, and 2) prunning data that does not meet a set quality threshold.
+After the reads are demultiplexed, we have Fastq files for each individual. These Fastq files need to go through preprocessing steps to ensure quality control before they can be used for any downstream analysis. These steps typically include 1) trimming adapters, and 2) prunning data that does not meet set quality thresholds. This step will be using the program **fastp** to preprocess the Fastq files in a single step. 
 ### Inputs
 
 ### Flags
