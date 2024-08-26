@@ -17,6 +17,9 @@
 - **Range of individuals per site:** 1 to 5 
 <br>
 
+- **Reference genome:** Trumbo et al., 2023
+<br>
+
 ## Pipeline overview
 ### Data transfer
 Downloaded raw reads from nanuq and performed md5sum check.
@@ -50,9 +53,9 @@ Downloaded raw reads from nanuq and performed md5sum check.
 | Pre-VCF file | Read quality | Fastp? | Phred score? | EX |
 | Pre-VCF file | Mapping quality | BWA? | ?? | EX |
 | Pre-VCF file | Read depth | STACKS (populations)? <br> multiple steps? | ?? | EX |
-| Post-VCF file | MAC | vcftools | 3 & 5 | EX |
-| Post-VCF file | Missing data | vcftools | 50% & 80% | EX |
-| Post-VCF file | HWE | PLINK | with & without | EX |
+| Post-VCF file | MAC | vcftools | a) 3 <br> b) 5 | EX |
+| Post-VCF file | Missing data | vcftools | a) 50% <br> b) 80% | EX |
+| Post-VCF file | HWE | PLINK | a) with <br> b) without | EX |
 
 ### Reporting (Pre-VCF file)
 | Filtering step | Number of Individuals | Number of reads |
