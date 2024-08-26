@@ -46,7 +46,7 @@ Downloaded raw reads from nanuq and performed md5sum check.
 12. Isolation-by-distance
 13. Unrooted phylogenetic tree
 
-## Filtering decisions
+## Filtering overview
 ### Decisions
 | Stage | Filter | Program | Setting | Explaination |
 | --- | --- | --- | --- | --- |
