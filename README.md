@@ -61,7 +61,7 @@ Downloaded raw reads from nanuq and performed md5sum check.
 | Filtering step | Number of Individuals | Number of reads |
 | --- | --- | --- |
 
-### Datasets (Post VCF-file)
+### Datasets (Post-VCF file)
 | Filter | Dataset 1 | Dataset 2 | Dataset 3 | Dataset 4 |
 | --- | --- | --- | --- | --- |
 
