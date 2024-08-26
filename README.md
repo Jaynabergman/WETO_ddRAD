@@ -4,7 +4,7 @@
 - **Taxon:** Western toads (*Anaxyrus boreas*)
 - **Spatial scale:** Broadscale phylogenetic analysis
 - **Goal:** Assess the genetic structure of western toads (*Anaxyrus boreas*) in the Canadian portion of the range.
-- **Background on the species:** The western toads in Canada are currently recognized as two populations (calling and non-calling populations) assigned as separate Designatable Units (DUs: COSEWIC, 2012). This designation was determined by morpholigical and behavioural differences among the populations (i.e. calling population possesses a vocal sac and a pronouced breeding calling, and the lack thereof in the non-calling population). Genetic differences have yet to be determined between these two DUs.
+- **Background:** The western toads in Canada are currently recognized as two populations (calling and non-calling populations) assigned as separate Designatable Units (DUs: COSEWIC, 2012). This designation was determined by morpholigical and behavioural differences among the populations (i.e. calling population possesses a vocal sac and a pronouced breeding calling, and the lack thereof in the non-calling population). Genetic differences have yet to be determined between these two DUs.
 ### Data
 - **Sequencing Type:** Double digest restriction-site associated DNA sequencing (ddRADseq)
 - **Enzymes:** SbfI / MspI (plate 1)
