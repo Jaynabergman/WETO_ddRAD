@@ -6,7 +6,7 @@ The program **multiqc** is used to aggregate separate files from an external pro
   \
 Multiqc was downloaded from the following link: https://github.com/MultiQC/MultiQC 
 
-## Inputs
+### Inputs
 1) **json** file from fastp for each individual
 
 ## Running multiqc
