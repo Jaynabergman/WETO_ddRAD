@@ -107,7 +107,7 @@ multiqc .
 ```
 ### Outputs
 Link to the HTML file:  \
-[View multiqc HTML file](JaynaBergman/WETO_ddRAD/multiqc_report.html)  \
+[View multiqc HTML file](multiqc_report.html)  \
   \
 Important outputs to consider:
 1) General statistics:
