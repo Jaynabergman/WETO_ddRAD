@@ -1,4 +1,5 @@
 # Multiqc
+The program **multiqc** is then to aggregate the files from the fastp results for each individual into a single report for easy interpretation. 
 Multiqc was downloaded from the following link: https://github.com/MultiQC/MultiQC .  \
   \
 Fastp files (.json files) were downloaded to my desktop from Compute Canada.  \
