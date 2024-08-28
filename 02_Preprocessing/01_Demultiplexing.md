@@ -2,7 +2,7 @@
   
 ## Background  
   
-The fastq files that we have received from Genome Qubec represent a single multiplexed plate of sequences (see *Project and data overview* for more details). The first thing we have to do to process the raw reads is demultiplex the reads in STACKS using the **process_radtags** program. This program will sort the raw reads using the unique barcodes to recover the individual samples from the library.   
+The fastq files that we have received from Genome Qubec represent a single multiplexed plate of sequences (see *Project and data overview* for more details). The first thing we have to do to process the raw reads is demultiplex the reads in **STACKS** using the **process_radtags** program. This program will sort the raw reads using the unique barcodes to recover the individual samples from the library.   
   
 ### Inputs   
 1) The foward (R1) raw fastq.gz file from Genome Quebec
@@ -17,8 +17,8 @@ The fastq files that we have received from Genome Qubec represent a single multi
 `--renz-1` first restriction enzyme used in library prep  
 `--renz-2` second restiction enzyme used in library prep  
 `--inline-null` indicates that the barcodes are only on the foward read and is inline with the sequence  
-`-r` rescues barcodes and RAD-Tag cut sites (if there are sequencing errors they get corrected so they can be properly recognized or they are discareded)  
-`-c` cleans data by removing any read that has an uncalled base  
+`-r` rescues barcodes and RAD-Tag cut sites (if there are sequencing errors in the read they get corrected so they can be properly recognized or the read is discareded)  
+`-c` cleans data by removing any reads that have an uncalled base  
 `-q` discards reads with low quality scores (default threshold is a Phred score of 10)  
 `-D` writes a file with the discarded reads so we don't lose this information (output files with *.rem*)
   
@@ -55,7 +55,7 @@ command line
 sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
 ```
 ### Outputs
-**process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which we can use to see the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality.
+**process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which we can use to see the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality (i.e. a high percentage of reads are retained and properly paired).
 ```
 Total Sequences         235868790
 Barcode Not Found       647230         0.3%
