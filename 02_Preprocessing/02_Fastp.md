@@ -110,5 +110,6 @@ Link to the HTML file:  \
 [View multiqc HTML file](multiqc_outputs/multiqc_report.html)  \
   \
 Important outputs to consider:
-1) General statistics:
-2) GC Content
+1) GC Content:  \
+![GC content plot](multiqc_results/fastp-seq-content-gc-plot.png)
+
