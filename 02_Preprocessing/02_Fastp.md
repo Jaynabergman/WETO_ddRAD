@@ -111,5 +111,5 @@ Link to the HTML file:  \
   \
 Important outputs to consider:
 1) GC Content:  \
-![GC content plot](multiqc_results/fastp-seq-content-gc-plot.png)
+![GC content plot](multiqc_outputs/fastp-seq-content-gc-plot.png)
 
