@@ -5,7 +5,6 @@ After the reads are demultiplexed, we have Fastq files for each individual. Thes
   \
 The following script is written as an array job which allows many jobs to be submitted at once through a single script.     
   \
-The program **multiqc** (see below) is then used to aggregate the fastp results for each individual into a single report for easy interpretation. 
 ### Inputs
 1. The demultiplexed fastq files for each individual.
 2. A text file that has a list of the individual files. This is needed to submit the script as an array job.
@@ -95,21 +94,3 @@ sbatch
 ### Outputs
 For every individual there will be:
 1) sample_name.json
-   
-## Multiqc
-Multiqc was downloaded from the following link: https://github.com/MultiQC/MultiQC .  \
-  \
-Fastp files (.json files) were downloaded to my desktop from Compute Canada.  \
-  \
-In the same folder as the .json files, type the following in the command line:
-```
-multiqc .
-```
-### Outputs
-Link to the HTML file:  \
-[View multiqc HTML file](multiqc_outputs/multiqc_report.html)  \
-  \
-Important outputs to consider:
-1) GC Content:  \
-![GC content plot](multiqc_outputs/fastp-seq-content-gc-plot.png)
-
