@@ -1,7 +1,15 @@
 # Multiqc
-The program **multiqc** is then to aggregate the files from the fastp results for each individual into a single report for easy interpretation. 
-Multiqc was downloaded from the following link: https://github.com/MultiQC/MultiQC .  \
+
+## Background
+
+The program **multiqc** is used to aggregate separate files from an external programs (in this case **fastp**) into a single report for easy interpretation. We will aggregate the fastp .json file for each individual into a single html file.  \
   \
+Multiqc was downloaded from the following link: https://github.com/MultiQC/MultiQC 
+
+## Inputs
+1) **json** file from fastp for each individual
+
+## Running multiqc
 Fastp files (.json files) were downloaded to my desktop from Compute Canada.  \
   \
 In the same folder as the .json files, type the following in the command line:
