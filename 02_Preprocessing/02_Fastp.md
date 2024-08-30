@@ -15,9 +15,9 @@ The following script is written as an array job which allows many jobs to be sub
 `-O` Read2 output file name  \
 `-j` Saves the output as a json format and sets the file name.  \
   \
-`f` This value indicates how many bases to trim at the front of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed read files and remove the number of bases that are identical at the beginning of all the reads. This value was set to 5.  \
+`f` This value indicates how many bases to trim at the front end of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed read files and remove the number of bases that are identical at the beginning of all the reads. This value was set to **5**.  \
   \
-`F` This value indicates how many bases to trim at the front of read2. This value was set to 5. **Should this always be identical to -f?**  **Why is tail trimming not needed?**  \
+`F` This value indicates how many bases to trim at the front end of read2 (similar to `f`). This value was set to **5**. **Should this always be identical to -f?**  **Why is tail trimming not needed?**  \
   \
 `--dedup` This flag enables deduplication so duplicated reads/pairs of reads are dropped.  \
   \
