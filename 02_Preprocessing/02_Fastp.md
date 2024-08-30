@@ -17,17 +17,17 @@ The following script is written as an array job which allows many jobs to be sub
   \
 `f` This value indicates how many bases to trim at the front end of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed read files and remove the number of bases that are identical at the beginning of all the reads. This value was set to **5**.  \
   \
-`F` This value indicates how many bases to trim at the front end of read2 (similar to `f`). This value was set to **5**. **Should this always be identical to -f?**  **Why is tail trimming not needed?**  \
+`F` This value indicates how many bases to trim at the front end of read2 (similar to `f`). This value was set to **5**.  \
   \
 `--dedup` This flag enables deduplication so duplicated reads/pairs of reads are dropped.  \
   \
 `--dup_calc_accuracy` This sets the accuracy level used to calculate duplication. The value can range between 1 to 6, with 6 being the highest level of accuracy (which also uses more memory and will take more time to run).  \
   \
-`-l` This is the minimum length that reads are required to be. Reads are discarded if they are short than this. **How do you decided on this value?**  \
+`-l` This is the minimum length that reads are required to be. Reads are discarded if they are short than this. Need to balance this value between discarding reads that are too short and keeping enough information. It is set to **50**.  \
   \
-`-p` Enables overrepresented sequence analysis  \
+`-p` Enables overrepresented sequence analysis (see `-P`)  \
   \
-`-P` **I dont understand this**  \
+`-P` This flag does not alter the data, but gives a count of overrepresented sequences and records the positions of these sequences in the reads. This enables you to visualize the distribution of overrepresented sequences.   \
   \
 `--trim_poly_g` This enforces that polyG tail trimming is turned on. This is important to enable for Illumina NovaSeq data (turned on by default for Illumina data), because read tails may have access Gs since G means no signal in the Illumina two-color systems. The default length is 10 to detect a polyG tail.   \
   \
