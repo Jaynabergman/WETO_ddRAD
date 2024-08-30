@@ -1,10 +1,10 @@
 # FastP
 
 ## Background
-After the reads are demultiplexed, we have Fastq files for each individual. These Fastq files need to go through preprocessing steps to ensure quality control before they can be used for any downstream analysis. These steps typically include 1) trimming adapters, and 2) prunning data that does not meet set quality thresholds. This step will be done using the program **fastp** to preprocess the Fastq files in a single step.  \
+After the reads are demultiplexed, we have Fastq files for each individual. These Fastq files need to go through preprocessing steps to ensure quality control before they can be used for any downstream analysis. These steps typically include 1) trimming adapters, and 2) prunning data that does not meet set quality thresholds. To process the fastq files in a single step we will use the program **fastp**.  \
   \
 The following script is written as an array job which allows many jobs to be submitted at once through a single script.     
-  \
+  
 ### Inputs
 1. The demultiplexed fastq files for each individual.
 2. A text file that has a list of the individual files. This is needed to submit the script as an array job.
