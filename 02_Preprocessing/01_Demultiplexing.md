@@ -2,7 +2,7 @@
   
 ## Background  
   
-The fastq files that we have received from Genome Qubec represent a single multiplexed plate of sequences (see *Project and data overview* for more details). The first thing we have to do to process the raw reads is demultiplex the reads in **STACKS** using the **process_radtags** program. This program will sort the raw reads using the unique barcodes to recover the individual samples from the library.   
+The fastq files that were received from Genome Qubec represent a single multiplexed plate of sequences (see *Project and data overview* for more details on the data). The first thing we have to do to process the raw reads is demultiplex the reads in **STACKS** using the **process_radtags** program. This program will sort the raw reads using the unique barcodes to recover the individual samples from the library.   
   
 ### Inputs   
 1) The foward (R1) raw fastq.gz file from Genome Quebec
@@ -55,7 +55,7 @@ command line
 sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
 ```
 ### Outputs
-**process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which we can use to see the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality (i.e. a high percentage of reads are retained and properly paired).
+**process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which tells you the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality (i.e. a high percentage of reads are retained and properly paired).
 ```
 Total Sequences         235868790
 Barcode Not Found       647230         0.3%
