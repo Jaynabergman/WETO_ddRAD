@@ -6,8 +6,8 @@ After the reads are demultiplexed, we have Fastq files for each individual. Thes
 The following script is written as an array job which allows many jobs to be submitted at once through a single script.     
   
 ### Inputs
-1. The demultiplexed fastq files for each individual.
-2. A text file that has a list of the individual files. This is needed to submit the script as an array job.
+1. Demultiplexed fastq file for each individual.
+2. A list of the individual file names (as a txt file). This is needed to submit the script as an array job.
 ### Flags
 `-i` Read1 input file name  \
 `-I` Read2 input file name  \
@@ -15,7 +15,7 @@ The following script is written as an array job which allows many jobs to be sub
 `-O` Read2 output file name  \
 `-j` Saves the output as a json format and sets the file name.  \
   \
-`f` This value indicates how many bases to trim at the front end of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed read files and remove the number of bases that are identical at the beginning of all the reads. This value was set to **5**.  \
+`f` This value indicates how many bases to trim at the front end of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed read files and remove the number of bases that are identical and shared at the beginning of all the reads. This value was set to **5**.  \
   \
 `F` This value indicates how many bases to trim at the front end of read2 (similar to `f`). This value was set to **5**.  \
   \
@@ -23,15 +23,15 @@ The following script is written as an array job which allows many jobs to be sub
   \
 `--dup_calc_accuracy` This sets the accuracy level used to calculate duplication. The value can range between 1 to 6, with 6 being the highest level of accuracy (which also uses more memory and will take more time to run).  \
   \
-`-l` This is the minimum length that reads are required to be. Reads are discarded if they are short than this. Need to balance this value between discarding reads that are too short and keeping enough information. It is set to **50**.  \
+`-l` This is the minimum length that reads are required to be. Reads are discarded if they are shorter than this value. When using this flag, we need to balance the value between discarding reads that are too short and keeping enough information. It is somewhat arbituary, but checking what others set this value to can be helpful. Here it is set to **50**.  \
   \
 `-p` Enables overrepresented sequence analysis (see `-P`)  \
   \
-`-P` This flag does not alter the data, but gives a count of overrepresented sequences and records the positions of these sequences in the reads. This enables you to visualize the distribution of overrepresented sequences.   \
+`-P` This flag does not alter the data, but gives a count of overrepresented sequences and records the positions of these sequences in the reads. This enables you to visualize the distribution of overrepresented sequences across the reads.   \
   \
 `--trim_poly_g` This enforces that polyG tail trimming is turned on. This is important to enable for Illumina NovaSeq data (turned on by default for Illumina data), because read tails may have access Gs since G means no signal in the Illumina two-color systems. The default length is 10 to detect a polyG tail.   \
   \
-`--cut_right` Moves the sliding window from the front of the read to the tail when assessing read quality. If the window reaches quality that is below one of the given thresholds, than the bases in the window and to the right of the window will be dropped. 
+`--cut_right` Moves the sliding window from the front of the read to the tail when assessing read quality. If the window reaches quality that is below one of the given thresholds, than the bases in the window and to the right of the window (the front end of the read) will be dropped. 
 
 ## Running Fastp
 Create a text file with the list of demultiplexed files:
@@ -92,5 +92,8 @@ command line
 sbatch
 ```
 ### Outputs
-For every individual there will be:
-1) sample_name.json
+Every individual will have two fastq files and two summary files:
+1) Read1 trimmed fastq file
+2) Read2 trimmed fastq file
+3) sample_name.json
+4) sample_name.html
