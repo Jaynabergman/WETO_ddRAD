@@ -50,18 +50,27 @@ Downloaded raw reads from nanuq and performed md5sum check.
 ### Decisions
 | Stage | Filter | Program | Setting | Explaination |
 | --- | --- | --- | --- | --- |
-| Pre-VCF file | Read quality | Fastp? | Phred score? | EX |
-| Pre-VCF file | Mapping quality | BWA? | ?? | EX |
-| Pre-VCF file | Read depth | STACKS (populations)? <br> multiple steps? | ?? | EX |
-| Post-VCF file | MAC | vcftools | a) 3 <br> b) 5 | EX |
-| Post-VCF file | Missing data | vcftools | a) 50% <br> b) 80% | EX |
-| Post-VCF file | HWE | PLINK | a) with <br> b) without | EX |
+| Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 20 | Determines bases with a quality below the given threshold |
+| Pre-VCF file | Mapping quality | Samtools | Q >= 20 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
+| Pre-VCF file | Read depth | STACKS (populations) | TBD | The number of reads that cover a given loci to indicate sequencing depth |
+| Post-VCF file | Missing data (individual & locus) | vcftools | a) 50% <br> b) 80% | Missing percent of genotypes for each individual and locus |
+| Post-VCF file | Minor allele count (MAC) (locus) | vcftools | a) 3 <br> b) 5 | Sets the minimumnumber of individuals to carry the minor allele at a locus |
+| Post-VCF file | Hardy-Weinberg Equilibrium (HWE) | PLINK | a) Remove loci out of HWE <br> b) Leave all loci | Determines if the expected frequencies of the genotypes at a given locus are under HWE |
 
 ### Reporting (Pre-VCF file)
 | Filtering step | Number of Individuals | Number of reads |
 | --- | --- | --- |
+| Read quality | # | # |
+| Mapping quality | # | # |
+| Read depth | # | # |
+| Remove paralogs | # | # |
 
 ### Datasets (Post-VCF file)
-| Filter | Dataset 1 | Dataset 2 | Dataset 3 | Dataset 4 |
-| --- | --- | --- | --- | --- |
+| Filter | Dataset 1 | Dataset 2 | Dataset 3 | Dataset 4 | Dataset 5 | Dataset 6 | Dataset 7 | Dataset 8|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Missing data (ind & locus) | 50% | 50% | 80% | 80% | 50% | 50% | 80% | 80% |
+| MAC | 3 | 3 | 3 | 3 | 5 | 5 | 5 | 5 |
+| HWE | yes | no | yes | no | yes | no | yes | no |
+| Number of individuals | # | # | # | # | # | # | # | # |
+| Number of SNPs | # | # | # | # | # | # | # | # |
 
