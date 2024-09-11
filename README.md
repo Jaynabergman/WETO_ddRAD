@@ -50,9 +50,9 @@ Downloaded raw reads from nanuq and performed md5sum check.
 ### Decisions
 | Stage | Filter | Program | Setting | Explaination |
 | --- | --- | --- | --- | --- |
-| Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 20 | Determines bases with a quality below the given threshold |
-| Pre-VCF file | Mapping quality | Samtools | Q >= 20 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
-| Pre-VCF file | Read depth | STACKS (populations) | TBD | The number of reads that cover a given loci to indicate sequencing depth |
+| Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 30 | Determines bases with a quality below the given threshold |
+| Pre-VCF file | Mapping quality | Samtools | Q >= 30 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
+| Pre-VCF file | Read depth | STACKS (populations) | 15X (low est.) <br> 30X (ideal) | The number of reads that cover a given loci to indicate sequencing depth |
 | Post-VCF file | Missing data (individual & locus) | vcftools | a) 50% <br> b) 80% | Missing percent of genotypes for each individual and locus |
 | Post-VCF file | Minor allele count (MAC) (locus) | vcftools | a) 3 <br> b) 5 | Sets the minimum number of alleles to be found at a locus |
 | Post-VCF file | Hardy-Weinberg Equilibrium (HWE) | PLINK | a) Remove loci out of HWE <br> b) Leave all loci | Determines if the expected frequencies of the genotypes at a given locus are under HWE |
