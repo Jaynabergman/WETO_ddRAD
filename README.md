@@ -4,7 +4,7 @@
 - **Taxon:** Western toads (*Anaxyrus boreas*)
 - **Spatial scale:** Broadscale population analysis
 - **Goal:** Assess the genetic structure of western toads (*Anaxyrus boreas*) in the Canadian portion of the range.
-- **Background:** The western toads in Canada are currently recognized as two populations (calling population and non-calling population: Pauly, 2008) which are delineated as separate Designatable Units (DUs: COSEWIC, 2012). This designation was determined by morphological and behavioural differences among the populations (i.e. the calling population possesses a vocal sac and a pronounced breeding calling, and the lack thereof in the non-calling population). Genetic differences have yet to be assessed between these two DUs.
+- **Background:** The western toads in Canada are currently recognized as two populations (calling population and non-calling population: Pauly, 2008) which are delineated as separate Designatable Units (DUs: COSEWIC, 2012). This designation was determined by morphological and behavioural differences among the populations (i.e. the calling population possesses a vocal sac and a pronounced breeding calling, and the lack thereof in the non-calling population). Genetic differences have yet to be assessed between these two populations.
 ### Data
 - **Sequencing Type:** Double digest restriction-site associated DNA sequencing (ddRADseq)
 - **Enzymes:** SbfI / MspI (plate 1)
@@ -18,16 +18,17 @@
 <br>
 
 - **Reference genome:** Trumbo et al., 2023 (DOI: 10.1111/mec.17175)
+- **Genome size:** ~5GB
 <br>
 
 ## Pipeline overview
 ### Data transfer
-Downloaded raw reads from nanuq and performed md5sum check.
+Downloaded raw reads from nanuq and performed md5sum check (DATE).
 <br>
 
 ### Prepocessing
 1. Demultiplexing in **STACKS**
-2. Fastq quality filtering in **Fastp**
+2. Fastq quality (read quality) filtering in **Fastp**
 3. Summarizing fastp results in **Multiqc**
 
 ### Reference Genome Alignment
@@ -37,14 +38,16 @@ Downloaded raw reads from nanuq and performed md5sum check.
 ### Filtering 
 6. Filter for mapping quality in **samtools**
 7. Filter for paralogs in **ngsParalog** and remove regions in **STACKS**
-8. Additional filtering of vcf files in **vcftools** and **PLINK**
+8. Additional filtering of vcf files in **vcftools** and **PLINK** (see *Filtering overview* below)
 
 ### Population genomic analysis
 9. Stats: Fst, Heterozygosity
 10. PCA
-11. STRUCTURE
-12. Isolation-by-distance
-13. Unrooted phylogenetic tree
+11. DAPC
+12. STRUCTURE
+13. Isolation-by-distance
+14. Unrooted phylogenetic tree (Neighbour-joining)
+15. Entropy (?)
 
 ## Filtering overview
 ### Decisions
