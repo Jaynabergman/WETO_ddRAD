@@ -33,6 +33,8 @@ module load bwa
 
 bwa index -p $prefix $ref
 ```
+### Outputs
+
 
 
 
