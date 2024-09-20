@@ -22,7 +22,7 @@
 <br>
 
 ## Pipeline overview
-### Data transfer
+### Raw data
 Downloaded raw reads from nanuq and performed md5sum check (DATE).
 <br>
 
