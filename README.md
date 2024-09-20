@@ -31,7 +31,7 @@ Downloaded raw reads from nanuq and performed md5sum check (DATE).
 2. Fastq quality (read quality) filtering in **Fastp**
 3. Summarizing fastp results in **Multiqc**
 
-### Reference Genome Alignment
+### Reference genome alignment
 4. Index reference genome in **BWA**
 5. Map reads to reference genome in **BWA**
 
