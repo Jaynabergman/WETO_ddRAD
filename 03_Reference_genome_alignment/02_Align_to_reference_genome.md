@@ -3,7 +3,7 @@
 ## Background
 After the reference genome is indexed, we will use the program **BWA** to align the reads to the reference genome. **BWA mem** is the algorithm to use when you have paired-end Illumina data. 
  
-When using **BWA mem** the read alignments come out in the order that they are listed in the Fastq file. Therefore we want to sort the mapped alignments. We will use the program **Samtools** to sort the SAM files into a *coordinate-ordered* format which means that the alignments will be sorted by how they apppear in the reference genome. This will also then convert the SAM files to BAM format (BAM is the compressed binary form of SAM). 
+When using **BWA mem** the read alignments come out in the order that they are listed in the Fastq file. Therefore we want to sort the mapped alignments. We will use the program **Samtools** to sort the SAM files into a *coordinate-ordered* format which means that the alignments will be sorted by how they apppear in the reference genome. **Samtools** will also convert the SAM files to BAM format (BAM is the compressed binary form of SAM). 
 
 This script is written as the outputs from **BWA mem** being piped directly into **samtools** using `|`. This means that the SAM file from **BWA mem** dosen't have to be saved which saves memory space.  
 
