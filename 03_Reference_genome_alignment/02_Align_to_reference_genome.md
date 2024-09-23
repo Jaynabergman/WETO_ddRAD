@@ -18,9 +18,14 @@ Finally, this script is written as an array job. So we can submit each individua
 **NOTE:** Because this script is written as an array job, we will genetate a text document that has tab separated columns which will indicate the paths to read1, read2, and the reference genome. This text document will also provide the sample ID and the reference information.
 
 ### Flags
+**BWA:**  
 `-t` Number of threads to use  
-`-M`  
-`-R` Indicates the complete read group header line (read group information). @RG is the header tag, ID is the individual, SM is the sample (These two will be identicical if the individual is only sampled once), PL is the sequencing info.   
+`-M` Mark shorter split hits as secondary (used for Picard compatibility)
+`-R` Indicates the complete read group header line (read group information). @RG is the header tag, ID is the individual, SM is the sample (These two will be identicical if the individual is only sampled once), PL is the sequencing info.  
+<br>
+**Samtools:**  
+`-@` Number of threads to use  
+`-o` output file name
 
 ## Running alignment
 array_map_sort.sh
