@@ -27,7 +27,7 @@ Finally, this script is written as an array job. So we can submit each individua
 `-@` Number of threads to use  
 `-o` output file name
 
-## Running alignment
+## Running BWA and Samtools
 array_map_sort.sh
 ```
 #!/bin/bash
