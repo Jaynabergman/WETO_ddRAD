@@ -1,4 +1,4 @@
-# Align reads to reference genome
+# Align reads to reference genome (and sort)
 
 ## Background
 After the reference genome is indexed, we will use the program **BWA** to align the reads to the reference genome. **BWA mem** is the algorithm to use when you have paired-end Illumina data. 
