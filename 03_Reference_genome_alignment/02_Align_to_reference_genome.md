@@ -5,7 +5,7 @@ After the reference genome is indexed, we will use the program **BWA** to align 
  
 When using **BWA mem** the read alignments come out in the order that they are listed in the Fastq file. Therefore we want to sort the mapped alignments. We will use the program **Samtools** to sort the SAM files into a *coordinate-ordered* format which means that the alignments will be sorted by how they apppear in the reference genome. **Samtools** will also convert the SAM files to BAM format (BAM is the compressed binary form of SAM). 
 
-This script is written as the outputs from **BWA mem** being piped directly into **samtools** using `|`. This means that the SAM file from **BWA mem** dosen't have to be saved which saves memory space.  
+This script is written so the outputs from **BWA mem** are directly piped into **samtools** using `|`. This means that the SAM file from **BWA mem** dosen't have to be saved which saves memory space.  
 
 Finally, this script is written as an array job. So we can submit each individual job at one time. 
 
