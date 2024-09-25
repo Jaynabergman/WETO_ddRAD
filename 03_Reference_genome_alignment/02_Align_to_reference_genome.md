@@ -20,7 +20,7 @@ Finally, this script is written as an array job. So we can submit each individua
 ### Flags
 **BWA:**  
 `-t` Number of threads to use  
-`-M` Mark shorter split hits as secondary (used for Picard compatibility)
+`-M` Mark shorter split hits as secondary (used for Picard compatibility)   
 `-R` Indicates the complete read group header line (read group information). @RG is the header tag, ID is the individual, SM is the sample (These two will be identicical if the individual is only sampled once), PL is the sequencing info.  
 <br>
 **Samtools:**  
