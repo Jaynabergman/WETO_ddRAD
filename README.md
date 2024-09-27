@@ -5,9 +5,9 @@
 - **Spatial scale:** Broadscale population analysis
 - **Goal:** Assess the genetic structure of western toads (*Anaxyrus boreas*) in the Canadian portion of the range.
 - **Background:** The western toads in Canada are currently recognized as two populations (calling population and non-calling population: Pauly, 2008) which are delineated as separate Designatable Units (DUs: COSEWIC, 2012). This designation was determined by morphological and behavioural differences among the populations (i.e. the calling population possesses a vocal sac and a pronounced breeding calling, and the lack thereof in the non-calling population). Genetic differences have yet to be assessed between these two populations.
-### Data
+### Data - Plate1
 - **Sequencing Type:** Double digest restriction-site associated DNA sequencing (ddRADseq)
-- **Enzymes:** SbfI / MspI (plate 1)
+- **Enzymes:** SbfI / MspI 
 - **Library prep:** Sent to Plateforme d’Analyses Génomiques of the Institut de Biologie Intégrative et des Systèmes (IBIS, Universite ́Laval, Quebec, Canada)
 - **Sequencing Info:** Paired-end sequencing on an Illumina NovaSeq 6000 at Centre d’expertise et de service Génome Québec at McGill University in Montreal, QC
 <br>
@@ -15,6 +15,17 @@
 - **Number of individuals sequenced:** 48 (inclusive of two positive controls - i.e. replicates, and one negative control)
 - **Number of sites:** 37 breeding sites
 - **Range of individuals per site:** 1 to 5 
+
+### Data - Plate2
+- **Sequencing Type:** Double digest restriction-site associated DNA sequencing (ddRADseq)
+- **Enzymes:** PstI / MspI
+- **Library prep:** Sent to Plateforme d’Analyses Génomiques of the Institut de Biologie Intégrative et des Systèmes (IBIS, Universite ́Laval, Quebec, Canada)
+- **Sequencing Info:** Paired-end sequencing on an Illumina NovaSeq 6000 at Centre d’expertise et de service Génome Québec at McGill University in Montreal, QC
+<br>
+
+- **Number of individuals sequenced:** 48 (inclusive of one positive control - i.e. replicates, and two negative control). 45 unique individuals.
+- **Number of sites:** 39 breeding sites
+- **Range of individuals per site:** 1 to 5 (one site with 3 individuals, one with 5 individuals)
 <br>
 
 - **Reference genome:** Trumbo et al., 2023 (DOI: 10.1111/mec.17175)
