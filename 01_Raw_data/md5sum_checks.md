@@ -43,5 +43,6 @@ du -h  NS.X0110.008.B704---B504.LeeYaw_20240513_WETOplate2-BC49-96_R2.fastq.gz
 ### Output
 The size of the files are:
 1) 53G
-2) 54G  
+2) 54G
+
 These are both large files and relatively similar in size. 
