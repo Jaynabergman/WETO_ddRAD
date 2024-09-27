@@ -34,4 +34,4 @@ module load bwa
 bwa index -p $prefix $ref
 ```
 ### Outputs
-The outputs will be five files with the output prefix you specify and the following file formats: **prefix.fa.{amb, ann, bwt, pac, sa}**
+The outputs will be five files with the output prefix you specify and the following file formats: **prefix.fa.{amb, ann, bwt, pac, sa}** 
