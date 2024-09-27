@@ -45,14 +45,16 @@ renz2=$6
 
 mkdir -p $outfolder
 
-~/local/bin/process_radtags --threads 1 -o $outfolder -1 $r1file -2 $r2file \
--b $barcodes --renz-1 $renz1 --renz-2 $renz2 --inline-null -r -c -q -D  \
---adapter-1 AGATCGGAAGAG --adapter-2 AGATCGGAAGAG
+~/local/bin/process_radtags --threads 8 -o $outfolder -1 $r1file \
+    -2 $r2file -b $barcodes --renz-1 $renz1 --renz-2 $renz2 \
+    --inline-null -r -c -q -D \
+    --adapter-1 AGATCGGAAGAG --adapter-2 AGATCGGAAGAG 
 
 ```
 command line
 ```
-sbatch scripts/process_radtags.sh WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R1.fastq.gz WETO_plate1_rawdata/NS.LH00487_0009.007.D701---B503.LeeYaw_WETO_plate1_R2.fastq.gz process_radtags WETO_plate1_rawdata/WETO_plate1_barcodes.txt SbfI MspI
+sbatch ~/projects/def-leeyaw-ab/jbergman/scripts/
+process_radtags.sh WETO_plate2_rawdata/NS.X0110.008.B704---B504.LeeYaw_20240513_WETOplate2-BC49-96_R1.fastq.gz WETO_plate2_rawdata/NS.X0110.008.B704---B504.LeeYaw_20240513_WETOplate2-BC49-96_R2.fastq.gz process_radtags_plate2 WETO_plate2_rawdata/WETO_plate2_barcodes.txt pstI mspI
 ```
 ### Outputs
 **process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which tells you the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality (i.e. a high percentage of reads are retained and properly paired).
