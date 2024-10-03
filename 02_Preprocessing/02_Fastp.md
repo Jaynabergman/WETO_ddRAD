@@ -97,3 +97,6 @@ Every individual will have two fastq files and two summary files:
 2) Read2 trimmed fastq file
 3) sample_name.json
 4) sample_name.html
+
+## Notes
+You can run fastp initially without defining `f` and `F` to better visualize common bases in all of the individuals.
