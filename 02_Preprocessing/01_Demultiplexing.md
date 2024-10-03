@@ -76,7 +76,7 @@ Four files for each individual:
 Tested running **process_radtags** with defining adapter sequences (`--adapter-1 AGATCGGAAGAG --adapter-2 AGATCGGAAGAG`) and without defining the adapters (see above code). When adapter sequences were defined we lost 478,290,049 (31.8%) reads due to containing adapter sequences, thus we opted to keep more reads and trim adapters in the next step using fastp.
 
 | Type of run | Adapter sequences defined | Adapters not defined |
-| --- | --- | --- |
+|:--- | ---:| ---:|
 | Starting number of reads | 1,506,075,128 | 1,506,075,128 |
 | Reads containing adapter sequence | 478,290,049 (31.8%) |	NA |
 | Barcode not found | 4,883,500 (0.3%) | 4,883,500 (0.3%) |
