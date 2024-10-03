@@ -71,3 +71,6 @@ Four files for each individual:
 2) sample_name.2.fq (reverse reads that will be kept)
 3) sample_name.rem.1.fq (forward reads that were removed because they didn't meet the flag requirements)
 4) sample_name.rem.2.fq (reverse reads that were removed because they didn't meet the flag requirements)
+
+## Notes
+Tested defining adapter sequences and running process radtags without defining the adapters. When adapter sequences were defined we lost 478,290,049 (31.8%) reads due to containing adapter sequences.
