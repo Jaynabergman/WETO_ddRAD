@@ -75,15 +75,14 @@ Four files for each individual:
 ## Notes
 Tested running **process_radtags** with defining adapter sequences (`--adapter-1 AGATCGGAAGAG --adapter-2 AGATCGGAAGAG`) and without defining the adapters (see above code). When adapter sequences were defined we lost 478,290,049 (31.8%) reads due to containing adapter sequences, thus we opted to keep more reads and trim adapters in the next step using fastp.
 
-```
-Type of run	Adapter sequences defined	Adapters not defined
-Starting number of reads	1,506,075,128	1,506,075,128
-Reads containing adapter sequence	478,290,049 (31.8%)	NA
-Barcode not found	4,883,500 (0.3%)	4,883,500 (0.3%)
-Low quality	3,013,848 (0.2%)	3,013,848 (0.2%)
-RAD cutsite not found	1,319,987 (0.1%)	1,319,987 (0.1%)
-Retained reads	1,018,567,744 (67.6%)	1,496,857,793 (99.4%)
-Properly paired 	485,162,484 (64.4%)	747,122,727 (99.2%)
-![image](https://github.com/user-attachments/assets/681d5bcd-db03-44f3-ba52-a78ce7024c7b)
-```
+| Type of run | Adapter sequences defined | Adapters not defined |
+| --- | --- | --- |
+| Starting number of reads | 1,506,075,128 | 1,506,075,128 |
+| Reads containing adapter sequence | 478,290,049 (31.8%) |	NA |
+| Barcode not found | 4,883,500 (0.3%) | 4,883,500 (0.3%) |
+| Low quality | 3,013,848 (0.2%) | 3,013,848 (0.2%) |
+| RAD cutsite not found | 1,319,987 (0.1%) | 1,319,987 (0.1%) |
+| Retained reads | 1,018,567,744 (67.6%) | 1,496,857,793 (99.4%) |
+| Properly paired | 485,162,484 (64.4%) | 747,122,727 (99.2%) |
+
 
