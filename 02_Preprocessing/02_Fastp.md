@@ -99,4 +99,58 @@ Every individual will have two fastq files and two summary files:
 4) sample_name.html
 
 ## Notes
-You can run fastp initially without defining `f` and `F` to better visualize common bases in all of the individuals.
+The first run of **fastp** was ran as a diagnostic tool using the following script and the summarized in multiqc:
+```
+#!/bin/bash
+#SBATCH -c 4
+#SBATCH --mem=32GB
+#SBATCH --time=0-8:00
+#SBATCH --account=def-leeyaw-ab
+#SBATCH -o arr_fastp_%A_%a.out
+#SBATCH -e arr_fastp_%A_%a.err
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=jberg031@uottawa.ca
+
+module load StdEnv/2020
+module load fastp/0.23.4
+
+readinfo=`sed -n -e "$SLURM_ARRAY_TASK_ID p" $1`
+
+IFS=' ' read -a namearr <<< $readinfo
+
+fastp --thread 4 -i ${namearr[0]} \
+      -I ${namearr[1]} -o ${namearr[0]%.fastq.gz}_T.fastq.gz \
+      -O ${namearr[1]%.fastq.gz}_T.fastq.gz -h ${namearr[2]}.html \
+      -j ${namearr[2]}.fastp.json
+```
+
+The input text file for fastp was generated using the following code:
+```
+#!/bin/bash
+
+
+ls process_radtags_WETO_plate2/*.fq.gz | grep -v "rem\." > samples_files_list.txt
+
+exec 3< samples_files_list.txt
+
+exec 4> fastp_files_list.txt
+
+
+# Read each line from the input file
+while IFS= read -r file1_path <&3 && IFS= read -r file2_path <&3; do
+
+    # Extract the base filenames
+    file1=$(basename "$file1_path")
+    file2=$(basename "$file2_path")
+
+    # Extract the common part from the filenames
+    common=$(echo "$file1" | sed 's/\..*//')
+
+    # Output the formatted line with filenames on the same line
+    echo "$file1_path $file2_path $common" >&4
+
+done
+
+exec 3<&-
+exec 4>&-
+```
