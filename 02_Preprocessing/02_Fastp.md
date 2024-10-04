@@ -34,7 +34,9 @@ The following script is written as an array job which allows many jobs to be sub
 `--cut_right` Moves the sliding window from the front of the read to the tail when assessing read quality. If the window reaches quality that is below one of the given thresholds, than the bases in the window and to the right of the window (the front end of the read) will be dropped. 
 
 ## Running Fastp
-1) Create a text file with the list of demultiplexed files:
+1) Create a text file with the list of demultiplexed files.
+
+generating_fastp_file_list.sh
 ```
 #!/bin/bash
 
@@ -116,11 +118,11 @@ fastp -f 5 -F 5 --dedup --dup_calc_accuracy 6 -l 50 -p -P 1 --trim_poly_g \
 ```
 command line
 ```
-sbatch
+sbatch scripts/array_fastp.sh fastp/WETO/plate2/fastp_files_list.txt 
 ```
 ### Outputs
 Every individual will have two fastq files and two summary files:
-1) Read1 trimmed fastq file
-2) Read2 trimmed fastq file
+1) sample_name.1.fq.gz_T.fastq.gz (Read1 trimmed fastq file)
+2) sample_name.2.fq.gz_T.fastq.gz (Read2 trimmed fastq file)
 3) sample_name.json
 4) sample_name.html
