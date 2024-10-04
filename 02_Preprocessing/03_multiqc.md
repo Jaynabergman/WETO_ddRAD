@@ -18,7 +18,7 @@ multiqc .
 ```
 ### Outputs
 Link to the HTML file:  \
-[View multiqc HTML file](multiqc_outputs/multiqc_report.html)  \
+[View multiqc HTML file](/multiqc_report-fastp.html)  \
   \
 Important outputs to consider:
 1) GC Content:  \
