@@ -34,7 +34,7 @@ The following script is written as an array job which allows many jobs to be sub
 `--cut_right` Moves the sliding window from the front of the read to the tail when assessing read quality. If the window reaches quality that is below one of the given thresholds, than the bases in the window and to the right of the window (the front end of the read) will be dropped. 
 
 ## Running Fastp
-Create a text file with the list of demultiplexed files:
+1) Create a text file with the list of demultiplexed files:
 ```
 #!/bin/bash
 
@@ -51,7 +51,7 @@ while IFS= read -r file1_path <&3 && IFS= read -r file2_path <&3; do
     file2=$(basename "$file2_path")
 
     # Extract the common part from the filenames
-    common=$(echo "$file1" | sed 's/_.*//')
+    common=$(echo "$file1" | sed 's/\..*//')
 
     # Output the formatted line with filenames on the same line
     echo "$file1_path $file2_path $common" >&4
@@ -61,7 +61,34 @@ done
 exec 3<&-
 exec 4>&-
 ```
+2) Run fastp as a diagnostic tool to initially assess reads and decide what to set `f` and `F` to.  
+  
+array_fastp_diagnostic.sh
+```
+#!/bin/bash
+#SBATCH -c 4
+#SBATCH --mem=32GB
+#SBATCH --time=0-8:00
+#SBATCH --account=NAME
+#SBATCH -o arr_fastp_%A_%a.out
+#SBATCH -e arr_fastp_%A_%a.err
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=EMAIL
 
+module load StdEnv/2020
+module load fastp/0.23.4
+
+readinfo=`sed -n -e "$SLURM_ARRAY_TASK_ID p" $1`
+
+IFS=' ' read -a namearr <<< $readinfo
+
+fastp --thread 4 -i ${namearr[0]} \
+      -I ${namearr[1]} -o ${namearr[0]%.fastq.gz}_T.fastq.gz \
+      -O ${namearr[1]%.fastq.gz}_T.fastq.gz -h ${namearr[2]}.html \
+      -j ${namearr[2]}.fastp.json
+```
+3) Run fastp with the appropriate flags and settings
+  
 array_fastp.sh
 ```
 #!/bin/bash
@@ -97,61 +124,3 @@ Every individual will have two fastq files and two summary files:
 2) Read2 trimmed fastq file
 3) sample_name.json
 4) sample_name.html
-
-## Notes
-The input text file for fastp was generated using the following code:
-```
-#!/bin/bash
-
-
-ls process_radtags_WETO_plate2/*.fq.gz | grep -v "rem\." > samples_files_list.txt
-
-exec 3< samples_files_list.txt
-
-exec 4> fastp_files_list.txt
-
-
-# Read each line from the input file
-while IFS= read -r file1_path <&3 && IFS= read -r file2_path <&3; do
-
-    # Extract the base filenames
-    file1=$(basename "$file1_path")
-    file2=$(basename "$file2_path")
-
-    # Extract the common part from the filenames
-    common=$(echo "$file1" | sed 's/\..*//')
-
-    # Output the formatted line with filenames on the same line
-    echo "$file1_path $file2_path $common" >&4
-
-done
-
-exec 3<&-
-exec 4>&-
-```
-The first run of **fastp** was ran as a diagnostic tool using the following script and then summarized in multiqc.  
-  
-array_fastp_diagnostic.sh
-```
-#!/bin/bash
-#SBATCH -c 4
-#SBATCH --mem=32GB
-#SBATCH --time=0-8:00
-#SBATCH --account=NAME
-#SBATCH -o arr_fastp_%A_%a.out
-#SBATCH -e arr_fastp_%A_%a.err
-#SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=EMAIL
-
-module load StdEnv/2020
-module load fastp/0.23.4
-
-readinfo=`sed -n -e "$SLURM_ARRAY_TASK_ID p" $1`
-
-IFS=' ' read -a namearr <<< $readinfo
-
-fastp --thread 4 -i ${namearr[0]} \
-      -I ${namearr[1]} -o ${namearr[0]%.fastq.gz}_T.fastq.gz \
-      -O ${namearr[1]%.fastq.gz}_T.fastq.gz -h ${namearr[2]}.html \
-      -j ${namearr[2]}.fastp.json
-```
