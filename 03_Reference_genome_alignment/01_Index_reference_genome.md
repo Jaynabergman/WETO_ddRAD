@@ -11,6 +11,7 @@ For this pipeline we are using a western toad reference genome that was previous
 
 ### Flags
 `-p` prefix of the outputs
+`a` set as **bwtsw** because... 
 
 ## Running BWA
 index_referencegenome.sh
@@ -31,7 +32,11 @@ ref=$2
 
 module load bwa
 
-bwa index -p $prefix $ref
+bwa index -p $prefix -a bwtsw $ref
+```
+Command line:
+```
+
 ```
 ### Outputs
 The outputs will be five files with the output prefix you specify and the following file formats: **prefix.fa.{amb, ann, bwt, pac, sa}** 
