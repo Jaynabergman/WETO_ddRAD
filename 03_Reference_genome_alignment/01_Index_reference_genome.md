@@ -14,16 +14,16 @@ For this pipeline we are using a western toad reference genome that was previous
 `a` set as **bwtsw** because... 
 
 ## Running BWA
-index_referencegenome.sh
 
+index_ref_genome.sh
 ```
 #!/bin/bash
-#SBATCH -c 1
-#SBATCH --mem=64GB
+#SBATCH -c 4
+#SBATCH --mem=32GB
+#SBATCH --time=1-12:00
 #SBATCH --account=NAME
-#SBATCH --time=2-12:00
-#SBATCH -o proc_radt_%A.out
-#SBATCH -e proc_radt_%A.err
+#SBATCH -o index_ref_%A_%a.out
+#SBATCH -e index_ref_%A_%a.err
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=EMAIL
 
@@ -36,7 +36,7 @@ bwa index -p $prefix -a bwtsw $ref
 ```
 Command line:
 ```
-
+sbatch ~scripts/index_ref_genome.sh WETO_reference ~/WETO_ref_genome/WETO.scaffolds.fasta
 ```
 ### Outputs
-The outputs will be five files with the output prefix you specify and the following file formats: **prefix.fa.{amb, ann, bwt, pac, sa}** 
+The outputs will be five files with the output prefix you specify and the following file formats: **WETO_reference.{amb, ann, bwt, pac, sa}** 
