@@ -48,7 +48,6 @@ mkdir -p $outfolder
 ~/local/bin/process_radtags --threads 8 -o $outfolder -1 $r1file \
     -2 $r2file -b $barcodes --renz-1 $renz1 --renz-2 $renz2 \
     --inline-null -r -c -q -D \
-    --adapter-1 AGATCGGAAGAG --adapter-2 AGATCGGAAGAG 
 
 ```
 command line
