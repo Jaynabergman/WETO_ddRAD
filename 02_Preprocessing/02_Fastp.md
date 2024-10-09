@@ -32,7 +32,7 @@ The following script is written as an array job which allows many jobs to be sub
 `--trim_poly_g` This enforces that polyG tail trimming is turned on. This is important to enable for Illumina NovaSeq data (turned on by default for Illumina data), because read tails may have access Gs since G means no signal in the Illumina two-color systems. The default length is 10 to detect a polyG tail.   \
   \
 `--cut_right` Moves the sliding window from the front of the read to the tail when assessing read quality. If the window reaches quality that is below one of the given thresholds, than the bases in the window and to the right of the window (the front end of the read) will be dropped. 
-  \
+  
 `-q` Is the the quality value that a base is qualified as. Default phred score >=Q15.
 
 ## Running Fastp
