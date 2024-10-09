@@ -28,15 +28,48 @@ Finally, this script is written as an array job. So we can submit each individua
 `-o` output file name
 
 ## Running BWA and Samtools
-array_map_sort.sh
+1. Generate the text file for the array script to run properly:
+generating_map_array_file.sh
+```
+#!/bin/bash
+
+
+ls fastp_WETO_plate2/fastp_trimmed_Q30/*.fastq.gz > samples_files_list.txt
+
+exec 3< samples_files_list.txt
+
+exec 4> mapped_files_list.txt
+
+
+# Read each line from the input file
+while IFS= read -r file1_path <&3 && IFS= read -r file2_path <&3; do
+
+    # Extract the base filenames
+    file1=$(basename "$file1_path")
+    file2=$(basename "$file2_path")
+
+    # Extract the common part from the filenames
+    common=$(echo "$file1" | sed 's/\..*//')
+
+    # Output the formatted line with filenames on the same line
+    echo "$file1_path $file2_path ~/projects/def-leeyaw-ab/jbergman/index_WETO_ref_genome/WETO_reference $common WETO_ref" >&4
+
+done
+
+exec 3<&-
+exec 4>&-
+```
+2. Run the array script to map the reads to the reference genome:  
+array_map_genome.sh
 ```
 #!/bin/bash
 #SBATCH -c 4
 #SBATCH --mem=128GB
 #SBATCH --time=2-12:00
 #SBATCH --account=NAME
-#SBATCH -o map_rmdup_44_%A_%a.out
-#SBATCH -e map_rmdup_44_%A_%a.err
+#SBATCH --array=1-48
+#SBATCH -o map_%A_%a.out
+#SBATCH -e map_%A_%a.err
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=EMAIL
 
@@ -60,7 +93,7 @@ bwa mem -t 4 -M -R $(echo "@RG\tID:$rg_info\tSM:$rg_info\tPL:Illumina") \
 ```
 command line
 ```
-sbatch
+sbatch ~/scripts/array_map_genome.sh mapped_files_list.txt
 ```
 
 ### Outputs
