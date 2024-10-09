@@ -64,7 +64,7 @@ Downloaded raw reads from nanuq and performed md5sum check (DATE).
 ### Decisions
 | Stage | Filter | Program | Setting | Explaination |
 | --- | --- | --- | --- | --- |
-| Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 30 | Determines bases with a quality below the given threshold |
+| Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 25 | Determines bases with a quality below the given threshold |
 | Pre-VCF file | Mapping quality | Samtools | Q >= 30 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
 | Pre-VCF file | Mapping quality | ngsParalog | pval < 0.05 | Identifies likely paralogous regions of the reference genome |
 | Pre-VCF file | Read depth | STACKS (populations) | 15X (low est.) <br> 30X (ideal) | The number of reads that cover a given loci to indicate sequencing depth |
