@@ -58,12 +58,12 @@ process_radtags.sh WETO_plate2_rawdata/NS.X0110.008.B704---B504.LeeYaw_20240513_
 ### Outputs
 **process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which tells you the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality (i.e. a high percentage of reads are retained and properly paired).
 ```
-Total Sequences         235868790
-Barcode Not Found       647230         0.3%
-Low Quality             1804214        0.8%
-RAD Cutsite Not Found   1567175        0.7%
-Retained Reads          231850171     98.3%
-Properly Paired         114362730     97.0%
+Total Sequences         1506075128
+Barcode Not Found       4883500     0.3%
+Low Quality             3013848     0.2%
+RAD Cutsite Not Found   1319987     0.1%
+Retained Reads          1496857793  99.4%
+Properly Paired         747122727   99.2%
 ```
 Four files for each individual:
 1) sample_name.1.fq (forward reads that will be kept)
