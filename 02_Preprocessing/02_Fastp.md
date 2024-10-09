@@ -118,7 +118,7 @@ fastp -f 5 -F 5 --dedup --dup_calc_accuracy 6 -l 50 -p -P 1 --trim_poly_g \
 ```
 command line
 ```
-sbatch scripts/array_fastp.sh fastp/WETO/plate2/fastp_files_list.txt 
+sbatch scripts/array_fastp.sh fastp_WETO_plate2/fastp_files_list.txt 
 ```
 ### Outputs
 Every individual will have two fastq files and two summary files:
