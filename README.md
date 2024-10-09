@@ -76,7 +76,7 @@ Downloaded raw reads from nanuq and performed md5sum check (DATE).
 ### Reporting (Pre-VCF file)
 | Filtering step | Number of Individuals | Number of reads |
 | --- | --- | --- |
-| Read quality | # | # |
+| Read quality (>=Q25) | 48 | 1,413,577,674 |
 | Mapping quality | # | # |
 | Read depth | # | # |
 | Remove paralogs | # | # |
