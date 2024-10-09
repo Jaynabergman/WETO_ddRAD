@@ -40,7 +40,7 @@ generating_fastp_file_list.sh
 ```
 #!/bin/bash
 
-ls plate1_demultiplex_out/*.fq.gz | grep -v "rem\." > samples_files_list.txt
+ls process_radtags_WETO_plate2/*.fq.gz | grep -v "rem\." > samples_files_list.txt
 
 exec 3< samples_files_list.txt
 exec 4> fastp_files_list.txt
@@ -89,7 +89,7 @@ fastp --thread 4 -i ${namearr[0]} \
       -O ${namearr[1]%.fastq.gz}_T.fastq.gz -h ${namearr[2]}.html \
       -j ${namearr[2]}.fastp.json
 ```
-3) Run fastp with the appropriate flags and settings
+3) Run fastp with the appropriate flags and settings to filter and trim reads
   
 array_fastp.sh
 ```
