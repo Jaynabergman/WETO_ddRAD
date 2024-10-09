@@ -15,9 +15,9 @@ The following script is written as an array job which allows many jobs to be sub
 `-O` Read2 output file name  \
 `-j` Saves the output as a json format and sets the file name.  \
   \
-`f` This value indicates how many bases to trim at the front end of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed read files and remove the number of bases that are identical and shared at the beginning of all the reads. This value was set to **5**.  \
+`f` This value indicates how many bases to trim at the front end of read1. This is needed when there is restriction site contamination on the reads. To know which value to set this to, manually look at the demultiplexed read files and remove the number of bases that are identical and shared at the beginning of all the reads. This value was set to **6**.  \
   \
-`F` This value indicates how many bases to trim at the front end of read2 (similar to `f`). This value was set to **5**.  \
+`F` This value indicates how many bases to trim at the front end of read2 (similar to `f`). This value was set to **6**.  \
   \
 `--dedup` This flag enables deduplication so duplicated reads/pairs of reads are dropped.  \
   \
@@ -32,6 +32,8 @@ The following script is written as an array job which allows many jobs to be sub
 `--trim_poly_g` This enforces that polyG tail trimming is turned on. This is important to enable for Illumina NovaSeq data (turned on by default for Illumina data), because read tails may have access Gs since G means no signal in the Illumina two-color systems. The default length is 10 to detect a polyG tail.   \
   \
 `--cut_right` Moves the sliding window from the front of the read to the tail when assessing read quality. If the window reaches quality that is below one of the given thresholds, than the bases in the window and to the right of the window (the front end of the read) will be dropped. 
+  \
+`-q` Is the the quality value that a base is qualified as. Default phred score >=Q15.
 
 ## Running Fastp
 1) Create a text file with the list of demultiplexed files.
@@ -110,8 +112,8 @@ readinfo=`sed -n -e "$SLURM_ARRAY_TASK_ID p" $1`
 
 IFS=' ' read -a namearr <<< $readinfo
 
-fastp -f 5 -F 5 --dedup --dup_calc_accuracy 6 -l 50 -p -P 1 --trim_poly_g \
-      --cut_right --thread 4 -i ${namearr[0]} \
+fastp -f 6 -F 6 --dedup --dup_calc_accuracy 6 -l 50 -p -P 1 --trim_poly_g \
+      -q 30 --cut_right --thread 4 -i ${namearr[0]} \
       -I ${namearr[1]} -o ${namearr[0]%.fastq.gz}_T.fastq.gz \
       -O ${namearr[1]%.fastq.gz}_T.fastq.gz -h ${namearr[2]}.html \
 	  -j ${namearr[2]}.fastp.json
@@ -126,3 +128,13 @@ Every individual will have two fastq files and two summary files:
 2) sample_name.2.fq.gz_T.fastq.gz (Read2 trimmed fastq file)
 3) sample_name.json
 4) sample_name.html
+
+## Notes
+I ran fastp testing out different read quality scores:
+| Phred score (Q) | Number of reads retained |
+| --- | --- |
+| 15 (default) | 1,416,898,130 |
+| 25 | 1,413,577,674 |
+| 30 | NA |
+  
+Since we retained a high number of reads regardless, we went with the more stringent read quality score of Q=30.
