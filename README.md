@@ -74,6 +74,7 @@ Downloaded raw reads from nanuq and performed md5sum check (DATE).
 | Post-VCF file | Linkage Disequilibrium (LD) | PLINK | Remove loci | Physical linkage or non-independent assortment leading to the non-random association of alleles at different loci |  
 
 ### Reporting (Pre-VCF file)
+Starting number of reads: 1,506,075,128
 | Filtering step | Number of Individuals | Number of reads |
 | --- | --- | --- |
 | Read quality (>=Q30) | 48 | 1,413,577,674 |
