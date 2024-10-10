@@ -17,9 +17,9 @@ In the same folder as the .json files, type the following in the command line:
 multiqc .
 ```
 ### Outputs
-Link to the HTML file:  \
-[View multiqc HTML file](./multiqc_report-fastp.html)  \
+HTML files are in the folder: **multiqc_html_files**  \
   \
 Important outputs to consider:
-1) GC Content:  \
-![GC content plot](multiqc_outputs/fastp-seq-content-gc-plot.png)
+1) Summary stats table (look at number of reads)
+2) GC Content plots (want the line to be ~50%)
+   
