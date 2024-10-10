@@ -52,7 +52,7 @@ while IFS= read -r file1_path <&3 && IFS= read -r file2_path <&3; do
     common=$(echo "$file1" | sed 's/\..*//')
 
     # Output the formatted line with filenames on the same line
-    echo "$file1_path $file2_path ~/projects/def-leeyaw-ab/jbergman/index_WETO_ref_genome/WETO_reference $common WETO_ref" >&4
+    echo "$file1_path $file2_path home/jbergman/projects/def-leeyaw-ab/jbergman/index_WETO_ref_genome/WETO_reference $common WETO_ref" >&4
 
 done
 
