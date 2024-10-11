@@ -97,7 +97,7 @@ sbatch ~/scripts/array_map_genome.sh mapped_files_list.txt
 ```
 
 ### Outputs
-BAM file for each individual sample.
+BAM file for each individual sample. ex: AS-3-DNA80.WETO_ref.sort.bam
 
 ## Notes
 Normally at this step we would want to index the aligned reads (using **samtools**). However, we cannot index the alignments because the scaffolds in the western toad genome are too large to be built in the BAM format.  
