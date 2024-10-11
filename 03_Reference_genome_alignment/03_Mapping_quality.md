@@ -1,6 +1,7 @@
-# Mapping quality of the reads to the reference genome
+# Determine mapping quality of the reads to the reference genome
 
 ## Background
+We can use the program **samtools** to look at BAM files, get summary statistics, and filter for things like mapping quality. 
 
 ### Inputs
 
