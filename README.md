@@ -78,7 +78,7 @@ Starting number of reads: 1,506,075,128
 | Filtering step | Number of Individuals | Number of reads |
 | --- | --- | --- |
 | Read quality (>=Q30) | 48 | 1,413,577,674 |
-| Mapped reads (any quality) | 46 | 631,122,668 |
+| Mapped reads (after alignment) | 46 | 631,122,668 |
 | Mapping quality (>=30) | 46 | 294,489,690 |
 | Read depth | # | # |
 | Remove paralogs | # | # |
