@@ -1,14 +1,20 @@
 # Determine mapping quality of the reads to the reference genome
 
 ## Background
-We can use the program **samtools** to look at BAM files, get summary statistics, and filter for things like mapping quality. 
+We can use the program **samtools** to look at BAM files, get summary statistics, and filter for mapping quality. In this case we are using **samtools** to filter for the reads that aligned to the reference genome with a specific quality score (i.e. filtering for mapping quality). 
 
 ### Inputs
+1. The BAM files that you want to filter - in this case we are providing a list of BAM files to filter. 
 
 ### Flags
+`-f` Indicates to include / keep reads that agree with the flag statement that follows  \
+`0X2` (which follows the `-f` flag) indicates **PROPER_PAIR** so each sagment is properly aigned according to the aligner  \
+`-q` Skips alignments that are mapped with quality scores (Phred scores) less than the value that is indicated  \
+`b` Indicates that the output will be in the BAM format  \
+`-o` Determines the output file name
 
 ## Running Samtools
-1. Generating text file to run array script
+1. Generating text file to run array script. This can be done in the command line in the folder where the BAM files are. 
   
 In the command line:
 ```
@@ -39,7 +45,7 @@ output=${readarray[1]}
 
 module load samtools
 
-samtools view -f 0X2 -q 30 -b $inputbam -o $output.Q30.bam
+samtools view -f 0X2 -q 30 -b -o $output.Q30.bam $inputbam
 ```
 Command line:
 ```
@@ -47,5 +53,7 @@ Command line:
 ```
 
 ### Outputs
+1. BAM file for each individual that contains only the reads that were mapped with equal to or greater than the quality score specified (e.x. AS-3-DNA80.WETO.Q30.bam)
 
 ## Notes
+We ran this script twice - once to filter for Q=20 and once for Q=30.
