@@ -44,7 +44,7 @@ Downloaded raw reads from nanuq and performed md5sum check (DATE).
 
 ### Reference genome alignment
 4. Index reference genome in **BWA**
-5. Map reads to reference genome in **BWA**
+5. Align reads to reference genome in **BWA**
 6. Filter for mapping quality in **samtools**
 
 ### Filtering 
