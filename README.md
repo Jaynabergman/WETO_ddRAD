@@ -45,9 +45,9 @@ Downloaded raw reads from nanuq and performed md5sum check (DATE).
 ### Reference genome alignment
 4. Index reference genome in **BWA**
 5. Map reads to reference genome in **BWA**
+6. Filter for mapping quality in **samtools**
 
 ### Filtering 
-6. Filter for mapping quality in **samtools**
 7. Filter for paralogs in **ngsParalog** and remove regions in **STACKS**
 8. Additional filtering of vcf files in **vcftools** and **PLINK** (see *Filtering overview* below)
 
