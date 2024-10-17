@@ -101,3 +101,38 @@ BAM file for each individual sample. ex: AS-3-DNA80.WETO_ref.sort.bam
 
 ## Notes
 Normally at this step we would want to index the aligned reads (using **samtools**). However, we cannot index the alignments because the scaffolds in the western toad genome are too large to be built in the BAM format.  
+
+## Read counts
+To determine how many reads aligned to the reference genome we will use the program **samtools** and the command **view**. The flag `-c` indicates "to count".  \
+
+bam_file_counts.sh
+```
+#!/bin/bash
+#SBATCH -c 4
+#SBATCH --mem=8GB
+#SBATCH --time=05:00:00
+#SBATCH --account=def-leeyaw-ab
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=jberg031@uottawa.ca
+
+
+module load samtools
+
+input_files="/home/jbergman/projects/def-leeyaw-ab/jbergman/plate2/BAM_WETO_plate2/ref_aligned/"
+
+output_file="read_count.txt"
+
+for bam_file in "$input_files"/*.bam; do
+
+        filename=$(basename "$bam_file" .bam)
+
+        read_count=$(samtools view -c "$bam_file")
+
+        echo "$filename $read_count" >> "$output_file"
+
+done
+```
+### Outputs
+A text file with the sample name and the number of reads that were aligned. This textfile was downloaded to my desktop and all the individuals were summed.  \
+  \
+**Total number of aligned reads = 631,122,668**
