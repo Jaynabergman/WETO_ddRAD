@@ -89,7 +89,6 @@ Starting number of reads: 1,506,075,128
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Missing data (ind & locus) | 50% | 50% | 80% | 80% | 50% | 50% | 80% | 80% |
 | MAC | 3 | 3 | 3 | 3 | 5 | 5 | 5 | 5 |
-| HWE | yes | no | yes | no | yes | no | yes | no |
 | Number of individuals | # | # | # | # | # | # | # | # |
 | Number of SNPs | # | # | # | # | # | # | # | # |
 
