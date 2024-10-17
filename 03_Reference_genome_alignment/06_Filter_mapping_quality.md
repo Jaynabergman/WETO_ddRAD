@@ -1,7 +1,9 @@
 # Determine mapping quality of the reads to the reference genome
 
 ## Background
-We can use the program **samtools** to look at BAM files, get summary statistics, and filter for mapping quality. In this case we are using **samtools** to filter for the reads that aligned to the reference genome with a specific quality score (i.e. filtering for mapping quality). 
+We can use the program **samtools** to look at BAM files, get summary statistics, and filter for mapping quality. In this case we are using **samtools** to filter for the reads that aligned to the reference genome with a specific quality score (i.e. filtering for mapping quality). Reads that have poor mapping quality may suggest that they are aligning to multiple places of the reference genome.  
+  
+This step should remove all reads from the negative control because we do not expect to have DNA from our species of interest (WETO) in the negative controls. It is a good idea to ensure that the negative controls have zero reads after running this step. The negative controls can then be removed.
 
 ### Inputs
 1. The BAM files that you want to filter - in this case we are providing a list of BAM files to filter. 
