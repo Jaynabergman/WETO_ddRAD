@@ -12,7 +12,7 @@
 - **Sequencing Info:** Paired-end sequencing on an Illumina NovaSeq 6000 at Centre d’expertise et de service Génome Québec at McGill University in Montreal, QC
 <br>
 
-- **Number of individuals sequenced:** 48 (inclusive of two positive controls - i.e. replicates, and one negative control)
+- **Number of individuals sequenced:** 47 (inclusive of two positive controls - i.e. replicates). Plus 1 negative control
 - **Number of sites:** 37 breeding sites
 - **Range of individuals per site:** 1 to 5 
 
@@ -23,7 +23,7 @@
 - **Sequencing Info:** Paired-end sequencing on an Illumina NovaSeq 6000 at Centre d’expertise et de service Génome Québec at McGill University in Montreal, QC
 <br>
 
-- **Number of individuals sequenced:** 48 (inclusive of one positive control - i.e. replicates, and two negative control). 45 unique individuals.
+- **Number of individuals sequenced:** 46 (inclusive of one positive control - i.e. replicate). Plus 2 negative controls.
 - **Number of sites:** 39 breeding sites
 - **Range of individuals per site:** 1 to 5 (one site with 3 individuals, one with 5 individuals)
 <br>
