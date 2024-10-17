@@ -111,9 +111,9 @@ bam_file_counts.sh
 #SBATCH -c 4
 #SBATCH --mem=8GB
 #SBATCH --time=05:00:00
-#SBATCH --account=def-leeyaw-ab
+#SBATCH --account=NAME
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=jberg031@uottawa.ca
+#SBATCH --mail-user=EMAIL
 
 
 module load samtools
