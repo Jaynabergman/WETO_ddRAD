@@ -7,7 +7,7 @@ When using **BWA mem** the read alignments come out in the order that they are l
 
 This script is written so the outputs from **BWA mem** are directly piped into **samtools** using `|`. This means that the SAM file from **BWA mem** dosen't have to be saved which saves memory space.  
 
-Finally, this script is written as an array job. So we can submit each individual job at one time. 
+Finally, this script is written as an array job. This allows us to submit each individual job at one time. 
 
 ### Inputs
 1) Path to indexed reference genome
