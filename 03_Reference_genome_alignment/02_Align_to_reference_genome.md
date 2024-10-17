@@ -103,7 +103,7 @@ BAM file for each individual sample. ex: AS-3-DNA80.WETO_ref.sort.bam
 Normally at this step we would want to index the aligned reads (using **samtools**). However, we cannot index the alignments because the scaffolds in the western toad genome are too large to be built in the BAM format.  
 
 ## Read counts
-To determine how many reads aligned to the reference genome we will use the program **samtools** and the command **view**. The flag `-c` indicates "to count".  \
+To determine how many reads aligned to the reference genome we will use the program **samtools** and the command **view**. The flag `-c` indicates "to count".  
 
 bam_file_counts.sh
 ```
