@@ -28,7 +28,7 @@ Finally, this script is written as an array job. This allows us to submit each i
 `-o` output file name
 
 ## Running BWA and Samtools
-1. Generate the text file for the array script to run properly:
+1. Generate the text file for the array script to run properly:  \
 generating_map_array_file.sh
 ```
 #!/bin/bash
