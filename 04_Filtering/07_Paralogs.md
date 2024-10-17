@@ -8,9 +8,9 @@ However, there are multiple steps that are required before and after running **n
 ### Overview of steps
 1. **Generating SNPs position file (STACKS):** To optimize the running of **ngsParalog** we need to generate a file that has the SNP positions. This will be done in **STACKS** using the *ref_map.pl*. The SNPs position file is not necessary, but it will speed up the computation time.
   
-2. **Running ngsParalog:**
+2. **Running ngsParalog:** 
   
-3. **Determine sites to include:** in R
+3. **Determine sites to include:** in R we will use the code provided by the authors of ngsParalog to calculate p-values to indicate which SNPs should be included in the 
   
 4. **Running populations (STACKS):**
 
