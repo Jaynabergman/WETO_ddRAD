@@ -10,7 +10,7 @@ We can use the program **samtools** to look at BAM files, get summary statistics
 `-f` Indicates to include / keep reads that agree with the flag statement that follows  \
 `0X2` (which follows the `-f` flag) indicates **PROPER_PAIR** so each sagment is properly aigned according to the aligner  \
 `-q` Skips alignments that are mapped with quality scores (Phred scores) less than the value that is indicated  \
-`b` Indicates that the output will be in the BAM format  \
+`-b` Indicates that the output will be in the BAM format  \
 `-o` Determines the output file name
 
 ## Running Samtools
@@ -55,5 +55,43 @@ Command line:
 ### Outputs
 1. BAM file for each individual that contains only the reads that were mapped with equal to or greater than the quality score specified (e.x. AS-3-DNA80.WETO.Q30.bam)
 
+## Read Counts
+We need to determine how many reads were kept after filtering for the mapping qualtiy. We will use the same script as previously used to cound the reads that were aligned to the reference genome.  
+
+bam_file_counts.sh
+```
+#!/bin/bash
+#SBATCH -c 4
+#SBATCH --mem=8GB
+#SBATCH --time=05:00:00
+#SBATCH --account=NAME
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=EMAIL
+
+
+module load samtools
+
+input_files="/home/jbergman/projects/def-leeyaw-ab/jbergman/plate2/BAM_WETO_plate2/ref_aligned/Q30/"
+
+output_file="read_count.txt"
+
+for bam_file in "$input_files"/*.bam; do
+
+        filename=$(basename "$bam_file" .bam)
+
+        read_count=$(samtools view -c "$bam_file")
+
+        echo "$filename $read_count" >> "$output_file"
+
+done
+```
+### Outputs
+A text file with the sample names and the number of reads that were kept after filtering for the mapping quality (done for both Q=20 and Q=30).  
+
+**Total number of reads kept (Q20) = 310,998,339**  
+**Total number of reads kept (Q30) = 294,489,690**
+
 ## Notes
 We ran this script twice - once to filter for Q=20 and once for Q=30.
+
+
