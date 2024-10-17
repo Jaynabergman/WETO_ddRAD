@@ -92,6 +92,6 @@ A text file with the sample names and the number of reads that were kept after f
 **Total number of reads kept (Q30) = 294,489,690**
 
 ## Notes
-We ran this script twice - once to filter for Q=20 and once for Q=30.
+Mapping quality was done twice: once to filter for Q>=20 and once for Q>=30.
 
 
