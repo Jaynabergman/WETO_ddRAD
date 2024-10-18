@@ -21,7 +21,9 @@ To optimize the running of **ngsParalog** we need to generate a file that has th
 
 ### Flags
 `-X "populations: --vcf"` Defines the options from the populations portion of the pipeline. In this case the `--vcf` means that the output will be SNPs in variant call format (vcf).  
-  
+
+### Running scripts
+
 To make the population map, in the folder with the bam files type in the command line: 
 ```
 ls *.bam | sed 's/\.bam$//' | awk '{print $0 "\t1"}' > popmap.txt
