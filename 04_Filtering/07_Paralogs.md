@@ -7,7 +7,7 @@ However, there are multiple steps that are required before and after running **n
 
 ### Overview of steps
 1. **Generating SNPs position file (STACKS)** 
-2. **Running ngsParalog:** 
+2. **Running ngsParalog** 
 3. **Determine sites to include** 
 4. **Running populations (STACKS)** 
 
