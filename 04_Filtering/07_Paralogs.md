@@ -22,7 +22,7 @@ To optimize the running of **ngsParalog** we need to generate a file that has th
 ### Flags
 `-X "populations: --vcf"` Defines the options from the populations portion of the pipeline. In this case the `--vcf` means that the output will be SNPs in variant call format (vcf).  
 
-### Running scripts
+### Scripts
 
 To make the population map, in the folder with the bam files type in the command line: 
 ```
@@ -59,12 +59,41 @@ sbatch ~scripts/STACKS_ref_map_pl.sh ref_map_pl_output popmap.txt BAM_WETO_plate
 
 
 ## 2. Running ngsParalog 
-We are running **ngsParalog** using *calcLR* to calculate the likelihood ratio of mismapping reads covering each site. 
+We are running **ngsParalog** using *calcLR* to calculate the likelihood ratio of mismapping reads covering each site. This program requires the input files to be in the **samtools mpileup** format. 
 
 ### Inputs
+1. Text file with the list of BAM files (one for each individual) and the path to each BAM file
+2. SNP position text file (created in the previous step)
 
 ### Flags
 
+### Scripts 
+Create a text file with the locus **SHOULD THIS BE LOCUS OR SNP**  and base pair positions by typing in the command line:
+```
+grep -v "^#" populations.snps.vcf | cut -f1,2 > snp_positions.txt
+```
+run_ngsParalog.sh
+```
+#!/bin/bash
+#SBATCH -c 1
+#SBATCH --mem=128GB
+#SBATCH --time=6-12:00
+#SBATCH -o ngsParalog_%A.out
+#SBATCH -e ngsParalog_%A.err
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=jberg031@uottawa.ca
+
+bamlist=$1
+SNPpositions=$2
+outfile=$3
+minimumind=$4
+
+module load samtools
+
+samtools mpileup -b $bamlist -l $SNPpositions -q 0 -Q 0 --ff UNMAP,DUP \
+        | ~/local/software/ngsParalog/ngsParalog calcLR -infile - \
+        -outfile $outfile -minQ 20 -minind $minimumind -mincov 1
+```
 ### Outputs
 
 ## 3. Determine sites to include
