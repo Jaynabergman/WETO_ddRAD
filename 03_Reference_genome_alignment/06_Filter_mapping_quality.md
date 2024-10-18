@@ -58,7 +58,7 @@ Command line:
 1. BAM file for each individual that contains only the reads that were mapped with equal to or greater than the quality score specified (e.x. AS-3-DNA80.WETO.Q30.bam)
 
 ## Read Counts
-We need to determine how many reads were kept after filtering for the mapping qualtiy. We will use the same script as previously used to cound the reads that were aligned to the reference genome.  
+We need to determine how many reads were kept after filtering for the mapping qualtiy. We will use the same script as previously used to count the reads that were aligned to the reference genome.  
 
 bam_file_counts.sh
 ```
