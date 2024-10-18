@@ -21,6 +21,7 @@ To optimize the running of **ngsParalog** we need to generate a file that has th
 ### Outputs
 
 ## 2. Running ngsParalog 
+We are running **ngsParalog** using *calcLR* to calculate the likelihood ratio of mismapping reads covering each site. 
 
 ### Inputs
 
