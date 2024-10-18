@@ -1,7 +1,7 @@
 # Removing Paralogs 
 
 ## Background
-Paralogs are two copies of the same region of the genome that occurr as a result of genome duplication. These events can duplicate small or large sequences in the genome. It is important to identify and remove reads that are likely mapping to a paralogous region in the genome. The main program that we will use is **ngsParalog** which finds reads based on coverage and heterozygosity that are positioned in likely paralogous regions of the genome. By running this program we will remove reads that are mapping to a paralogous region that is not included in the reference genome.  
+Paralogs are two copies of the same region of the genome that occur as a result of genome duplication. These events can duplicate small or large sequences in the genome. It is important to identify and remove reads that are likely mapping to a paralogous region in the genome. The main program that we will use is **ngsParalog** which finds reads based on coverage and heterozygosity that are positioned in likely paralogous regions of the genome. By running this program we will remove reads that are mapping to a paralogous region that is not included in the reference genome.  
 
 However, there are multiple steps that are required before and after running **ngsParalog** inorder to identify and then remove these reads (see overview of steps below).
 
@@ -30,7 +30,7 @@ We are running **ngsParalog** using *calcLR* to calculate the likelihood ratio o
 ### Outputs
 
 ## 3. Determine sites to include
-in R we will use the code provided by the authors of ngsParalog to calculate p-values to indicate which SNPs should be included in the vcf file so there is no paralogs.
+We will use the R code provided by the authors of ngsParalog (CITE) to calculate p-values that indicate which SNPs should be included in the vcf file. This should leave us with SNPs that we are confident are not paralogs.
 
 ### Inputs
 
@@ -39,7 +39,7 @@ in R we will use the code provided by the authors of ngsParalog to calculate p-v
 ### Outputs
 
 ## 4. Running populations (STACKS)
-This is ran to select for only the SNPs that were determined in the previous steps and generates the vcf file.
+This is ran to generate a vcf file that only has SNPs that were determined in the previous steps (i.e. are not in paralogous regions of the genome).
 
 ### Inputs
 
