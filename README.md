@@ -34,7 +34,7 @@
 
 ## Pipeline overview
 ### Raw data
-Downloaded raw reads from nanuq and performed md5sum check (DATE).
+Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 <br>
 
 ### Prepocessing
