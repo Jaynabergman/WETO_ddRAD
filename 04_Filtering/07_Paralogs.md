@@ -55,9 +55,49 @@ Command line:
 sbatch ~scripts/STACKS_ref_map_pl.sh ref_map_pl_output popmap.txt BAM_WETO_plate2/ref_aligned/Q30/
 ```
 ### Outputs
+1. populations.snps.vcf - snps writen in vcf file format. 1,724,026 loci.
+3. ref_map.log
+```
+gstacks output:
+Read 294489690 BAM records:
+  kept 272631482 primary alignments (93.3%), of which 137458482 reverse reads
+  skipped 0 primary alignments with insufficient mapping qualities (0.0%)
+  skipped 19593496 excessively soft-clipped primary alignments (6.7%)
+  skipped 0 unmapped reads (0.0%)
+  skipped some suboptimal (secondary/supplementary) alignment records
+
+  Per-sample stats (details in 'gstacks.log.distribs'):
+    read 6401949.8 records/sample (921290-13886986)
+    kept 90.9%-94.0% of these
+
+Built 1724026 loci comprising 135173000 forward reads and 58260792 matching paired-end reads; mean insert length was 204.9
+
+Genotyped 1724026 loci:
+  effective per-sample coverage: mean=5.0x, stdev=2.1x, min=1.8x, max=11.2x
+  mean number of sites per locus: 175.6
+  a consistent phasing was found for 2920488 of out 3102619 (94.1%) diploid loci needing phasing
 
 
+populations output:
+Removed 0 loci that did not pass sample/population constraints from 1724026 loci.
+Kept 1724026 loci, composed of 307960945 sites; 0 of those sites were filtered, 3801185 variant sites remained.
+    269566510 genomic sites, of which 30587842 were covered by multiple loci (11.3%).
+Mean genotyped sites per locus: 175.61bp (stderr 0.05).
 
+```
+### Modifying SNP vcf file for ngsParalog input
+1. Extract locus and base pair position from the vcf file into a text file.  
+  
+In command line:
+```
+grep -v "^#" populations.snps.vcf | cut -f1,2 > snp_positions.txt
+```
+2. Create a text file with the list of input BAM files (will use the BAM files that were filtered for Q>=30)
+
+In command line:
+```
+find BAM_WETO_plate2/ref_aligned/Q30 -type f > BAM_list_plate2.txt
+```
 ## 2. Running ngsParalog 
 We are running **ngsParalog** using *calcLR* to calculate the likelihood ratio of mismapping reads covering each site. This program requires the input files to be in the **samtools mpileup** format. 
 
