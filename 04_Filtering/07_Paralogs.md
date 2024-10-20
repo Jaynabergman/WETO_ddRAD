@@ -106,6 +106,19 @@ We are running **ngsParalog** using *calcLR* to calculate the likelihood ratio o
 2. SNP position text file (created in the previous step)
 
 ### Flags
+samtools:  
+`-b`
+`-l`
+`-q`
+`-Q`
+`--ff`
+
+ngsParalog:  
+`-infile`
+`-outfile`
+`minQ`
+`-minind`
+`-mincov`
 
 ### Scripts 
 Create a text file with the locus **SHOULD THIS BE LOCUS OR SNP**  and base pair positions by typing in the command line:
