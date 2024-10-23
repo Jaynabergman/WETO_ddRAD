@@ -44,7 +44,7 @@ mkdir -p $outfolder
 ```
 Command line:
 ```
-
+sbatch ~scripts/STACKS_ref_map_pl.sh ref_map_pl_output popmap.txt BAM_WETO_plate2/ref_aligned/unfiltered_BAMs/
 ```
 ### Outputs
 
