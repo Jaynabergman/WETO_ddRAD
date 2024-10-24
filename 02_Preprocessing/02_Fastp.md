@@ -138,3 +138,5 @@ I ran fastp testing out different read quality scores:
 | 30 | 1,413,577,674 |
   
 Since we retained a high number of reads regardless (there was no change between Q=25 and Q=30), we went with the more stringent read quality score of Q=30.
+
+Oct 24 - change -F 2 dont remove duplicates 
