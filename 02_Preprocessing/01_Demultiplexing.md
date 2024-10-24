@@ -84,4 +84,5 @@ Tested running **process_radtags** with defining adapter sequences (`--adapter-1
 | Retained reads | 1,018,567,744 (67.6%) | 1,496,857,793 (99.4%) |
 | Properly paired | 485,162,484 (64.4%) | 747,122,727 (99.2%) |
 
+Oct 24 - running with adapter seq defined and 1 adapter mis match allowed
 
