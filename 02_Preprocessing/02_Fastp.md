@@ -139,4 +139,4 @@ I ran fastp testing out different read quality scores:
 | 30 | NA |
   
 
-Oct 24 - change -F 3 dont remove duplicates 
+Oct 24, 2024 - ran with the above code. Changed -F to 3 and took of removed duplicates option. 
