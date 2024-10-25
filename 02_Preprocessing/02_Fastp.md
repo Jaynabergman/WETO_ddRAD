@@ -134,7 +134,7 @@ Every individual will have two fastq files and two summary files:
 I ran fastp testing out different read quality scores:
 | Phred score (Q) | Number of reads retained |
 | --- | --- |
-| 15 (default) | 1,416,898,130 |
+| 15 (default) | 929,620,816 |
 | 25 | 1,413,577,674 |
 | 30 | 1,413,577,674 |
   
