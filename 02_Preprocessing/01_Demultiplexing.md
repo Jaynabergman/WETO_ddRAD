@@ -47,7 +47,7 @@ mkdir -p $outfolder
 
 ~/local/bin/process_radtags --threads 8 -o $outfolder -1 $r1file \
     -2 $r2file -b $barcodes --renz-1 $renz1 --renz-2 $renz2 \
-    --inline-null -r -c -q -D \
+    --inline-null -r -c -q -D --adapter-1 AGATCGGAAGAG --adapter-2 AGATCGGAAGAG --adapter-mm 1
 
 ```
 command line
@@ -58,12 +58,13 @@ process_radtags.sh WETO_plate2_rawdata/NS.X0110.008.B704---B504.LeeYaw_20240513_
 ### Outputs
 **process_radtags.log**: This has important summary information like *total_raw_read_counts* and *per_barcode_raw_read_counts*. See below the *total_raw_read_counts* which tells you the percent of reads retained and the percent discarded. The values shown below indicate that there are not any significant issues with the inital read quality (i.e. a high percentage of reads are retained and properly paired).
 ```
-Total Sequences         1506075128
-Barcode Not Found       4883500     0.3%
-Low Quality             3013848     0.2%
-RAD Cutsite Not Found   1319987     0.1%
-Retained Reads          1496857793  99.4%
-Properly Paired         747122727   99.2%
+Total Sequences 1506075128
+Reads containing adapter sequence    525075960     34.9%
+Barcode Not Found                      4883500      0.3%
+Low Quality                            3013848      0.2%
+RAD Cutsite Not Found                  1319987      0.1%
+Retained Reads                       971781833     64.5%
+Properly Paired                      474622345     63.0%
 ```
 Four files for each individual:
 1) sample_name.1.fq (forward reads that will be kept)
@@ -84,5 +85,4 @@ Tested running **process_radtags** with defining adapter sequences (`--adapter-1
 | Retained reads | 971,781,833 (64.5%) | 1,496,857,793 (99.4%) |
 | Properly paired | 474,622,345 (63.0%) | 747,122,727 (99.2%) |
 
-Oct 24 - running with adapter seq defined and 1 adapter mis match allowed
-
+Oct 24, 2024 - running with adapter seq defined and 1 adapter mis match allowed (as show in current script above)
