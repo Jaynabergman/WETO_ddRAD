@@ -77,12 +77,12 @@ Tested running **process_radtags** with defining adapter sequences (`--adapter-1
 | Type of run | Adapter sequences defined | Adapters not defined |
 |:--- | ---:| ---:|
 | Starting number of reads | 1,506,075,128 | 1,506,075,128 |
-| Reads containing adapter sequence | 478,290,049 (31.8%) |	NA |
+| Reads containing adapter sequence | 525,075,960 (34.9%) |	NA |
 | Barcode not found | 4,883,500 (0.3%) | 4,883,500 (0.3%) |
 | Low quality | 3,013,848 (0.2%) | 3,013,848 (0.2%) |
 | RAD cutsite not found | 1,319,987 (0.1%) | 1,319,987 (0.1%) |
-| Retained reads | 1,018,567,744 (67.6%) | 1,496,857,793 (99.4%) |
-| Properly paired | 485,162,484 (64.4%) | 747,122,727 (99.2%) |
+| Retained reads | 971,781,833 (64.5%) | 1,496,857,793 (99.4%) |
+| Properly paired | 474,622,345 (63.0%) | 747,122,727 (99.2%) |
 
 Oct 24 - running with adapter seq defined and 1 adapter mis match allowed
 
