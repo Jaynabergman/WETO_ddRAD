@@ -64,8 +64,8 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 ### Decisions
 | Stage | Filter | Program | Setting | Explaination |
 | --- | --- | --- | --- | --- |
-| Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 30 | Determines bases with a quality below the given threshold |
-| Pre-VCF file | Mapping quality | Samtools | Q >= 30 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
+| Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 20 | Determines bases with a quality below the given threshold |
+| Pre-VCF file | Mapping quality | gstacks | Q >= 20 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
 | Pre-VCF file | Mapping quality | ngsParalog | pval < 0.05 | Identifies likely paralogous regions of the reference genome |
 | Pre-VCF file | Read depth | STACKS (populations) | 15X (low est.) <br> 30X (ideal) | The number of reads that cover a given loci to indicate sequencing depth |
 | Post-VCF file | Missing data (individual & locus) | vcftools | a) 50% <br> b) 80% | Missing percent of genotypes for each individual and locus |
@@ -77,10 +77,10 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 Starting number of reads: 1,506,075,128
 | Filtering step | Number of Individuals | Number of reads |
 | --- | --- | --- |
-| Read quality (Q>=30) | 48 (inclusive of negative controls) | 1,413,577,674 |
-| Mapped reads (after alignment) | 46 | 631,122,668 |
-| Mapping quality (Q>=30) | 46 | 294,489,690 |
-| Mapping quality (Q>=20) | 46 | 310,998,339 |
+| Read quality (Q>=20) | 48 (inclusive of negative controls) | 929,487,304 |
+| Mapped reads (after alignment) | 46 |  |
+| Mapping quality (Q>=30) | 46 |  |
+| Mapping quality (Q>=20) | 46 |  |
 | Read depth | # | # |
 | Remove paralogs | # | # |
 
