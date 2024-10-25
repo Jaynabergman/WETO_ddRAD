@@ -135,9 +135,8 @@ I ran fastp testing out different read quality scores:
 | Phred score (Q) | Number of reads retained |
 | --- | --- |
 | 15 (default) | 929,620,816 |
-| 25 | 1,413,577,674 |
-| 30 | 1,413,577,674 |
+| 20 | 929,487,304 |
+| 30 | NA |
   
-Since we retained a high number of reads regardless (there was no change between Q=25 and Q=30), we went with the more stringent read quality score of Q=30.
 
 Oct 24 - change -F 3 dont remove duplicates 
