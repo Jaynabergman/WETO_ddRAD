@@ -72,6 +72,7 @@ array_fastp_diagnostic.sh
 #!/bin/bash
 #SBATCH -c 4
 #SBATCH --mem=32GB
+#SBATCH --array=1-48
 #SBATCH --time=0-8:00
 #SBATCH --account=NAME
 #SBATCH -o arr_fastp_%A_%a.out
@@ -98,6 +99,7 @@ array_fastp.sh
 #!/bin/bash
 #SBATCH -c 4
 #SBATCH --mem=32GB
+#SBATCH --array=1-48
 #SBATCH --time=0-8:00
 #SBATCH --account=NAME
 #SBATCH -o arr_fastp_%A_%a.out
