@@ -114,8 +114,7 @@ readinfo=`sed -n -e "$SLURM_ARRAY_TASK_ID p" $1`
 
 IFS=' ' read -a namearr <<< $readinfo
 
-fastp -f 6 -F 6 --dedup --dup_calc_accuracy 6 -l 50 -p -P 1 --trim_poly_g \
-      -q 30 --cut_right --thread 4 -i ${namearr[0]} \
+fastp -f 5 -F 3 -q 20 --cut_right --thread 4 -i ${namearr[0]} \
       -I ${namearr[1]} -o ${namearr[0]%.fastq.gz}_T.fastq.gz \
       -O ${namearr[1]%.fastq.gz}_T.fastq.gz -h ${namearr[2]}.html \
 	  -j ${namearr[2]}.fastp.json
@@ -141,4 +140,4 @@ I ran fastp testing out different read quality scores:
   
 Since we retained a high number of reads regardless (there was no change between Q=25 and Q=30), we went with the more stringent read quality score of Q=30.
 
-Oct 24 - change -F 2 dont remove duplicates 
+Oct 24 - change -F 3 dont remove duplicates 
