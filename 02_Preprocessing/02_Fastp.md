@@ -136,7 +136,5 @@ I ran fastp testing out different read quality scores:
 | --- | --- |
 | 15 (default) | 929,620,816 |
 | 20 | 929,487,304 |
-| 30 | NA |
-  
 
-Oct 24, 2024 - ran with the above code. Changed -F to 3 and took of removed duplicates option. 
+ 
