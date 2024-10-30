@@ -120,19 +120,21 @@ module load samtools
 
 input_files="/home/jbergman/projects/def-leeyaw-ab/jbergman/plate2/BAM_WETO_plate2/ref_aligned/"
 
-output_file="read_count.txt"
+output_file="read_count_F260.txt"
 
 for bam_file in "$input_files"/*.bam; do
 
         filename=$(basename "$bam_file" .bam)
 
-        read_count=$(samtools view -c "$bam_file")
+        read_count=$(samtools view -c -F 260 "$bam_file")
 
         echo "$filename $read_count" >> "$output_file"
 
 done
 ```
 ### Outputs
-A text file with the sample name and the number of reads that were aligned. This textfile was downloaded to my desktop and all the individuals were summed.  \
+`-F 260` Only counts mapped primary aligned reads.  
+  
+ A text file with the sample name and the number of reads that were aligned. This textfile was downloaded to my desktop and all the individuals were summed.  \
   \
-**Total number of aligned reads = 631,122,668**
+**Total number of aligned reads = 917,788,446**
