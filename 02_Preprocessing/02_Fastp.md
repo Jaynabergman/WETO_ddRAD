@@ -125,4 +125,5 @@ I ran fastp testing out different read quality scores:
 | 15 (default) | 929,620,816 |
 | 20 | 929,487,304 |
 
+We proceeded with the following scripts using Q >= 20 
  
