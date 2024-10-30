@@ -15,15 +15,16 @@ We then call SNPs using the module *populations*. This module is able to execute
 `--vcf` Determines that the output will be SNPs in variant call format (vcf).  
 
 *populations filters*  
-`--max-obs-het`  
-`--min-samples-overall`  
-`--min-mac`  
-`--min-gt-depth`  
-`--write-single-snp`  
-`--fstats`  
+`--max-obs-het` Specifies the maximum observed heterozygosity required to process a nucleotide site at a locus (applied to the metapopulation).   
+`--min-samples-overall` minimum percentage of individuals across populations required to process a locus     
+`--min-mac` The number of gene copies or individuals carrying the minor allele at a locus (applied to the metapopulation).      
+`--min-gt-depth` Specifies the minimum number of reads to inlcude a called SNP (otherwise marked as missing data) (i.e. minimum geotype read depth)  
+  
+`--write-single-snp`  Restricts data analysis to only the first SNP per locus  
+`--fstats`  enable the calculation of SNP and haloptype-based F statistics. 
 
 ## Running populations
-1) First run populations without any filters to have a baseline comparions:
+### 1) First run populations without any filters to have a baseline comparions:
 
 populations_nofilters_vcf.sh
 ```
@@ -52,7 +53,7 @@ lters
 ### Outputs
 
   
-2. Run populations with the filters defined:
+### 2. Run populations with the filters defined:
 
 ```
 #!/bin/bash
