@@ -3,9 +3,9 @@
 ## Background
 We will use **STACKS** to assemble the loci and generate output files for additional filtering steps.  
   
-The first module in the pipeline when a reference genome is used is *gstacks*. This module is used to assemble the loci after the reads are aligned to the reference genome (done in previous step). *gstacks* will take the paired-end reads and identify SNPs for each locus and then genotype each individual at the identified SNPs.  
+**gstacks** is the first module used in the pipeline when there is alignments to a reference genome. This module is used to assemble the loci after the reads are aligned to the reference genome (done in previous step). *gstacks* will take the paired-end reads and identify SNPs for each locus and then genotype each individual at the identified SNPs.  
 
-Using the *ref_map.pl* the *gstacks* outputs are directly piped into the next module in **STACKS** which is *populations*. This module is able to execute filtering options and computes population level statistics. Additionally, *populations* is able to generate a number of output files that are required for different programs used in the downstream anlayses. 
+We then call SNPs using the module *populations*. This module is able to execute filtering options and computes population level statistics. Additionally, *populations* is able to generate a number of output files that are required for different programs used in the downstream anlayses. 
 
 ### Inputs
 1. The aligned and sorted BAM file for each individual
