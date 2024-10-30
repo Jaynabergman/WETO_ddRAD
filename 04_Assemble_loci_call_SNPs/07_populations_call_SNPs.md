@@ -38,6 +38,7 @@ mkdir -p $outfolder
 ```
 Command line:
 ```
-
+sbatch ~scripts/populations_nofilters_vcf.sh gstacks_plate2_Q20/ popmap.txt populations_nofi
+lters
 ```
 ### Outputs
