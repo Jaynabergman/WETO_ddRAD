@@ -14,17 +14,8 @@ We then call SNPs using the module *populations*. This module is able to execute
 `O` The output directory  
 `--vcf` Determines that the output will be SNPs in variant call format (vcf).  
 
-*populations filters*  
-`--max-obs-het` Specifies the maximum observed heterozygosity required to process a nucleotide site at a locus (applied to the metapopulation).   
-`--min-samples-overall` minimum percentage of individuals across populations required to process a locus     
-`--min-mac` The number of gene copies or individuals carrying the minor allele at a locus (applied to the metapopulation).      
-`--min-gt-depth` Specifies the minimum number of reads to inlcude a called SNP (otherwise marked as missing data) (i.e. minimum geotype read depth)  
-  
-`--write-single-snp`  Restricts data analysis to only the first SNP per locus  
-`--fstats`  enable the calculation of SNP and haloptype-based F statistics. 
-
 ## Running populations
-### 1) First run populations without any filters to have a baseline comparions:
+### First run populations without any filters to have a baseline comparions:
 
 populations_nofilters_vcf.sh
 ```
@@ -51,38 +42,64 @@ sbatch ~scripts/populations_nofilters_vcf.sh gstacks_plate2_Q20/ popmap.txt popu
 lters
 ```
 ### Outputs
+Folder called populations_nofilers (important files):  
+1) populations.log - Tells you how many loci were removed (none in this case because no filters were used)
+2) populations.snp.vcf - vcf file that has the genotypes per locus
 
-  
-### 2. Run populations with the filters defined:
 
+## Get summary statistics using **vcftools**
+
+### Flags
+`--depth` Generates a file containing the mean depth per individual (.idepth)  
+`--site-depth` Generates a file containing the depth per site summed across all individuals (.ldepth)  
+`--site-mean-depth` Generates a file containing the mean depth per site average across all individuals (.ldepth.mean)  
+`--geno-depth` Generates a file containing depth for each genotype in the vcf file (missing data is given -1) (.gdepth)  
+`--het` Calculates a measure of heterozygosity on a per-individual basis (the inbreeding coefficient F is estimated for each individual) (.het)  
+`--missing-indv` Generates a file reporting the missingness per individual (.imiss)  
+`--missing-site` Generates a file reporting the missingness per site (.lmiss)
+
+### Running the script
+vcftools_ouputs.sh
 ```
 #!/bin/bash
 #SBATCH -c 4
 #SBATCH --mem=28GB
-#SBATCH --time=10:00:00
-#SBATCH --account=NAME
-#SBATCH -o pops_%A.out
-#SBATCH -e pops_%A.err
+#SBATCH --time=01:00:00
+#SBATCH -o vcf_%A.out
+#SBATCH -e vcf_%A.err
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=EMAIL
-
-
-infolder=$1
-popmap=$2
-outfolder=$3
-maxHO=$4
-
-
-mkdir $outfolder
+#SBATCH --mail-user=jberg031@uottawa.ca
 
 
 
-~/local/bin/populations -P $infolder -M $popmap  \
---max-obs-het $maxHO --min-samples-overall X --min-mac 3 --min-gt-depth X \
---write-single-snp --fstats -O $outfolder --vcf
+infile=$1
+outfile=$2
 
+
+module load vcftools
+
+
+vcftools --vcf $infile --depth --out $outfile
+
+vcftools --vcf $infile --site-mean-depth --out $outfile
+
+vcftools --vcf $infile --site-depth --out $outfile
+
+vcftools --vcf $infile --geno-depth --out $outfile
+
+vcftools --vcf $infile --het --out $outfile
+
+vcftools --vcf $infile --site-quality --out $outfile
+
+vcftools --vcf $infile --missing-indv --out $outfile
+
+vcftools --vcf $infile --missing-site --out $outfile
 ```
 
+### Outputs
+Separate files for each line. They can be downloaded to your desktop and brought into R.  
+
+**See RMD** 
 
 
  
