@@ -11,43 +11,48 @@ We then call SNPs using the module *populations*. This module is able to execute
 *populations no filters*  
 `P` Input directory that contains the BAM files (from gstacks)  
 `M` The population map with the list of samples in the BAM files   
+`--max-obs-het` Specifies the maximum observed heterozygosity required to process a nucleotide site at a locus
 `O` The output directory  
 `--vcf` Determines that the output will be SNPs in variant call format (vcf).  
 
 ## Running populations
-### First run populations without any filters to have a baseline comparions:
 
-populations_nofilters_vcf.sh
+We will run populations while testing different values of max heterozygosity (0.6, 0.7, 0.8)  
+  
+populations_filters.sh
 ```
 #!/bin/bash
 #SBATCH -c 4
-#SBATCH --mem=64GB
-#SBATCH --time=1-12:00
+#SBATCH --mem=28GB
+#SBATCH --time=10:00:00
 #SBATCH --account=NAME
+#SBATCH -o pops_%A.out
+#SBATCH -e pops_%A.err
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=EMAIL
 
 infolder=$1
 popmap=$2
 outfolder=$3
+maxHO=$4
 
-mkdir -p $outfolder
+mkdir $outfolder
 
-~/local/bin/populations -P $infolder -M $popmap -O $outfolder --vcf
+~/local/bin/populations -P $infolder -M $popmap  \
+ --max-obs-het $maxHO -O $outfolder --vcf
 
 ```
 Command line:
 ```
-sbatch ~scripts/populations_nofilters_vcf.sh gstacks_plate2_Q20/ popmap.txt populations_nofi
-lters
+sbatch ~scripts/populations_nofilters_vcf.sh gstacks_plate2_Q20/ popmap.txt populations_HO-0.6 0.6
 ```
 ### Outputs
-Folder called populations_nofilers (important files):  
-1) populations.log - Tells you how many loci were removed (none in this case because no filters were used)
+Folder called populations_HO-0.6 (one for each HE setting) (important files):  
+1) populations.log - Tells you how many varient sites (SNPs) were removed (56,377 for a setting of 0.6)
 2) populations.snp.vcf - vcf file that has the genotypes per locus
 
 
-## Get summary statistics using **vcftools**
+## NOT USED: Get summary statistics using **vcftools**
 
 ### Flags
 `--depth` Generates a file containing the mean depth per individual (.idepth)  
@@ -100,6 +105,3 @@ vcftools --vcf $infile --missing-site --out $outfile
 Separate files for each line. They can be downloaded to your desktop and brought into R.  
 
 **See RMD** 
-
-
- 
