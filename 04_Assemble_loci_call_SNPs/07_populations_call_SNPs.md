@@ -17,7 +17,7 @@ We then call SNPs using the module *populations*. This module is able to execute
 
 ## Running populations
 
-We will run populations while testing different values of max heterozygosity (0.6, 0.7, 0.8)  
+We will run populations while testing different values of max heterozygosity (0.6, 0.7, 0.8). Also good to run populations without any filters set (i.e. without the `--max-obs-het` flag).  
   
 populations_filters.sh
 ```
@@ -50,6 +50,8 @@ sbatch ~scripts/populations_nofilters_vcf.sh gstacks_plate2_Q20/ popmap.txt popu
 Folder called populations_HO-0.6 (one for each HE setting) (important files):  
 1) populations.log - Tells you how many varient sites (SNPs) were removed (56,377 for a setting of 0.6)
 2) populations.snp.vcf - vcf file that has the genotypes per locus
+
+## Next steps
 
 
 ## NOT USED: Get summary statistics using **vcftools**
