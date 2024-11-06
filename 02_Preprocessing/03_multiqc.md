@@ -19,7 +19,9 @@ multiqc .
 ### Outputs
 HTML files are in the folder: **multiqc_html_files**  \
   \
-Important outputs to consider:
+Important graphs/tables to consider:
 1) Summary stats table (look at number of reads)
 2) GC Content plots (want the line to be ~50%)
+
+multiqc_general_stats_Q20.txt: statistics from the fastp outputs. This is where the read counts can be found.
    
