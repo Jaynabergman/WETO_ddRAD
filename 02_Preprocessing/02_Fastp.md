@@ -53,7 +53,7 @@ done
 exec 3<&-
 exec 4>&-
 ```
-2) Run fastp as a diagnostic tool to initially assess reads and decide what to set `f` and `F` to.  
+2) Run fastp as a diagnostic tool to initially assess reads and decide what to set `f` and `F` to. Once fastp is ran the outputs need to be looked at in multiqc.
   
 array_fastp_diagnostic.sh
 ```
@@ -125,5 +125,5 @@ I ran fastp testing out different read quality scores:
 | 15 (default) | 929,620,816 |
 | 20 | 929,487,304 |
 
-We proceeded with the following scripts using Q >= 20 
+We continued with the pipeline using Q >= 20 
  
