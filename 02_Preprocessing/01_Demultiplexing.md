@@ -21,7 +21,10 @@ The fastq files that were received from Genome Qubec represent a single multiple
 `-c` cleans data by removing any reads that have an uncalled base  
 `-q` discards reads with low quality scores (default threshold is a Phred score of 10)  
 `-D` writes a file with the discarded reads so we don't lose this information (output files with *.rem*)
-  
+
+`--adapter-1` provides the adapter sequence for the frist read  
+`--adapter-2` provides the adapter sequence for the paired read  
+`--adapter-mm` sets the number of mismatches allowed in the adapter sequences
 ## Running process_radtags
 process_radtags.sh
 
@@ -84,5 +87,3 @@ Tested running **process_radtags** with defining adapter sequences (`--adapter-1
 | RAD cutsite not found | 1,319,987 (0.1%) | 1,319,987 (0.1%) |
 | Retained reads | 971,781,833 (64.5%) | 1,496,857,793 (99.4%) |
 | Properly paired | 474,622,345 (63.0%) | 747,122,727 (99.2%) |
-
-Oct 24, 2024 - running with adapter seq defined and 1 adapter mis match allowed (as show in current script above)
