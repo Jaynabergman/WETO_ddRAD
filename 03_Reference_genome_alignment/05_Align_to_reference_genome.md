@@ -104,6 +104,9 @@ Normally at this step we would want to index the aligned reads (using **samtools
 
 ## Read counts
 To determine how many reads aligned to the reference genome we will use the program **samtools** and the command **view**. The flag `-c` indicates "to count".  
+  
+`-F 260` Only counts mapped primary aligned reads.  
+  
 
 bam_file_counts.sh
 ```
@@ -133,8 +136,6 @@ for bam_file in "$input_files"/*.bam; do
 done
 ```
 ### Outputs
-`-F 260` Only counts mapped primary aligned reads.  
-  
- A text file with the sample name and the number of reads that were aligned. This textfile was downloaded to my desktop and all the individuals were summed.  \
+A text file was generated with the sample name and the number of reads that were aligned to the reference genome. This textfile was downloaded to my desktop and the reads from each individual were summed.  \
   \
 **Total number of aligned reads = 917,788,446**
