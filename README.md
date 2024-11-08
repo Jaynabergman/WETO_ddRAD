@@ -66,8 +66,7 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 | --- | --- | --- | --- | --- |
 | Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 20 | Determines bases with a quality below the given threshold |
 | Pre-VCF file | Mapping quality | gstacks | Q >= 20 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
-| Pre-VCF file | Mapping quality | ngsParalog | pval < 0.05 | Identifies likely paralogous regions of the reference genome |
-| Pre-VCF file | Read depth | STACKS (populations) | 15X (low est.) <br> 30X (ideal) | The number of reads that cover a given loci to indicate sequencing depth |
+| Post-VCF file | Geotype depth | SNPflitR | 5 | Gives support for the confidence of a genotype call  |
 | Post-VCF file | Missing data (individual & locus) | vcftools | a) 50% <br> b) 80% | Missing percent of genotypes for each individual and locus |
 | Post-VCF file | Minor allele count (MAC) (locus) | vcftools | a) 3 <br> b) 5 | Sets the minimum number of copies for the minor alleles to be found at a locus |
 | Post-VCF file | Hardy-Weinberg Equilibrium (HWE) | Populations (STACKS) | a) Remove loci out of HWE (threshold < 0.001) <br> b) Leave all loci | Determines if the expected frequencies of the genotypes at a given locus are under HWE |
