@@ -83,15 +83,15 @@ Starting number of reads: 1,506,075,128
 | Read depth (**gstacks**) | 46 | mean=12.0X |
 
 ### Datasets (Post-VCF file)
-| Filter | Dataset 1 | Dataset 2 | Dataset 3 | Dataset 4 | Dataset 5 | Dataset 6 | Dataset 7 | Dataset 8|
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Max obs Heterozygosity| 0.6 |  |  |  |  |  |  |  |
-| Genotype depth | 5 | 50% | 80% | 80% | 50% | 50% | 80% | 80% |
-| Genotype quality (Q) | 20 | 3 | 3 | 3 | 5 | 5 | 5 | 5 |
+| Filter | Dataset 1 | Dataset 2 | Dataset 3 | Dataset 4 | Dataset 5 | Dataset 6 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Max observed Heterozygosity| 0.6 | 0.6 | 0.7 | 0.7 | 0.8 | 0.8 |
+| Genotype depth | 5 | 5 | 5 | 5 | 5 | 5 |
+| Genotype quality (Q) | 20 | 20 | 20 | 20 | 20 | 20 |
 | Maximum depth (SNP) | 28 |  |  |  |  |  |  |  |
-| MAC | 3 |  |  |  |  |  |  |  |
-| Missingness by SNP | 5% |  |  |  |  |  |  |  |
-| Missingness by indiv. | 30% |  |  |  |  |  |  |  |
-| Number of individuals | 40 | # | # | # | # | # | # | # |
-| Number of SNPs | 11,185 | # | # | # | # | # | # | # |
+| MAC | 3 | 3 | 3 | 3 | 3 | 3 |
+| Missingness by SNP | 5% |  |  |  |  |  |
+| Missingness by individual | 30% |  |  |  |  |  |
+| Number of individuals | 40 | # | # | # | # | # |
+| Number of SNPs | 11,185 | # | # | # | # | # |
 
