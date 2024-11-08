@@ -75,20 +75,23 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 
 ### Reporting (Pre-VCF file)
 Starting number of reads: 1,506,075,128
-| Filtering step | Number of Individuals | Number of reads |
+| Filtering step | Number of Individuals | Reported value |
 | --- | --- | --- |
-| Read quality (Q>=20) | 48 (inclusive of negative controls) | 929,487,304 |
-| Mapped reads (after alignment) | 46 | 1,042,899,142 |
-| Mapping quality (Q>=30) | 46 |  |
-| Mapping quality (Q>=20) | 46 |  |
-| Read depth | # | # |
-| Remove paralogs | # | # |
+| Read quality (Q>=20) | 48 (inclusive of negative controls) | 929,487,304 reads |
+| Mapped reads (only primary aligned reads) | 46 | 917,788,446 reads |
+| Mapping quality (Q>=20) | 46 | 1,772,249 Genotyped loci |
+| Read depth (**gstacks**) | 46 | mean=12.0X |
 
 ### Datasets (Post-VCF file)
 | Filter | Dataset 1 | Dataset 2 | Dataset 3 | Dataset 4 | Dataset 5 | Dataset 6 | Dataset 7 | Dataset 8|
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Missing data (ind & locus) | 50% | 50% | 80% | 80% | 50% | 50% | 80% | 80% |
-| MAC | 3 | 3 | 3 | 3 | 5 | 5 | 5 | 5 |
-| Number of individuals | # | # | # | # | # | # | # | # |
-| Number of SNPs | # | # | # | # | # | # | # | # |
+| Max obs Heterozygosity| 0.6 |  |  |  |  |  |  |  |
+| Genotype depth | 5 | 50% | 80% | 80% | 50% | 50% | 80% | 80% |
+| Genotype quality (Q) | 20 | 3 | 3 | 3 | 5 | 5 | 5 | 5 |
+| Maximum depth (SNP) | 28 |  |  |  |  |  |  |  |
+| MAC | 3 |  |  |  |  |  |  |  |
+| Missingness by SNP | 5% |  |  |  |  |  |  |  |
+| Missingness by indiv. | 30% |  |  |  |  |  |  |  |
+| Number of individuals | 40 | # | # | # | # | # | # | # |
+| Number of SNPs | 11,185 | # | # | # | # | # | # | # |
 
