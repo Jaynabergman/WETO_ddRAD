@@ -5,9 +5,9 @@
 The majority of the SNP filtering will be done using the R package **SNPfiltR**. This R package contains functions that are helpful for visualizing metrics for determining quality and missing data. The only filter applied before the vcf file is brought into R is the *--max-obs-het* set in *populations* in **STACKS**. 
 
 ### Inputs
-1. Vcf file (generated from *popuations* in **STACKS**)
+1. vcf file (generated with *popuations* in **STACKS**)
 
-## Filters
+### Filters
 1. **Genotype depth** (*hard_filter(depth)*): Determines the minimum depth for genotype calls
 2. **Genotype quality** (*hard_filter(gq)*): This sets the minimum genotype quality for the genotype that are called
 3. **Allele balance** (*filter_allele_balance*): This determines the ratio of reads showing the reference allele to all reads for heterozygous individuals
