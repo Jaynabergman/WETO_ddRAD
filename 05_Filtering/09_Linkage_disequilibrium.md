@@ -1,5 +1,14 @@
 # Linkage Disequilibrium
 
+## Background
+
+## Step 1: Plink
+
+### Inputs
+
+### Flags
+
+### Script
 
 1. Run plink to get prune in file
 
@@ -28,6 +37,16 @@ plink --bfile Temp_data --allow-extra-chr --set-missing-var-ids @:# --make-bed -
 
 plink --bfile sorted_data --allow-extra-chr --pca --out $outfile
 ```
+### Outputs
+
+## Step 2: Vcftools
+
+### Inputs
+
+### Flags
+
+### Script
 
 2. Run vcftools to get new vcf file with only prune in SNPs
 
+### Outputs
