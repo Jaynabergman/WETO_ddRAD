@@ -47,12 +47,10 @@ Command line:
 sbatch ~scripts/populations_nofilters_vcf.sh gstacks_plate2_Q20/ popmap.txt populations_HO-0.6 0.6
 ```
 ### Outputs
-Folder called populations_HO-0.6 (one for each HE setting) (important files):  
+Folder called populations_HO-0.6 (one for each observed Het setting) (important files):  
 1) populations.log - Tells you how many varient sites (SNPs) were removed (56,377 for a setting of 0.6)
 2) populations.snp.vcf - vcf file that has the genotypes per locus
 
 ## NOTES
 
-We ran populations while testing different values of max heterozygosity (0.6, 0.7, 0.8). Regardless of the max observed heterozygosity setting, we got the same clustering patterns of the individuals.
-
-## Next steps
+We ran populations while testing different values of max heterozygosity (0.6, 0.7, 0.8). Regardless of the max observed heterozygosity setting, we got the same clustering patterns of the individuals (see sup map for PCA plots).
