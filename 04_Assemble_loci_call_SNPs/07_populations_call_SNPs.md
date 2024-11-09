@@ -53,6 +53,6 @@ Folder called populations_HO-0.6 (one for each HE setting) (important files):
 
 ## NOTES
 
-We ran populations while testing different values of max heterozygosity (0.6, 0.7, 0.8). We also ran populations without any filters set (i.e. without the `--max-obs-het` flag). Regardless of the max observed heterozygosity setting, we got the same clustering patterns of the individuals.
+We ran populations while testing different values of max heterozygosity (0.6, 0.7, 0.8). Regardless of the max observed heterozygosity setting, we got the same clustering patterns of the individuals.
 
 ## Next steps
