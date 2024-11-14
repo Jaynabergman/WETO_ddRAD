@@ -1,6 +1,7 @@
 # Linkage Disequilibrium
 
 ## Background
+Linkage disequlibrium is when there is nonrandom association of alleles between two or more loci. Thus we filter for this in order to get a dataset with loci that are likely randomly associated with each other. 
 
 ## Step 1: Plink
 
