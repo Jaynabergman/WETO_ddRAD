@@ -48,7 +48,7 @@ sbatch ~scripts/populations_nofilters_vcf.sh gstacks_plate2_Q20/ popmap.txt popu
 ```
 ### Outputs
 Folder called populations_HO-0.6 (one for each observed Het setting) (important files):  
-1) populations.log - Tells you how many varient sites (SNPs) were removed (56,377 for a setting of 0.6)
+1) populations.log - Tells you how many varient sites (SNPs) were removed (56,377 for a setting of 0.6 resulting in a total of 4,621,070 sites)
 2) populations.snp.vcf - vcf file that has the genotypes per locus
 
 ## NOTES
