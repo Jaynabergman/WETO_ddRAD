@@ -1,11 +1,14 @@
 # Linkage Disequilibrium
 
 ## Background
-Linkage disequlibrium is when there is nonrandom association of alleles between two or more loci. Thus we filter for this in order to get a dataset with loci that are likely randomly associated with each other. 
+Linkage disequlibrium is when there is nonrandom association of alleles between two or more loci. We filter our data in order to get a dataset with loci that are likely randomly associated with each other. Thus by filtering for linkage disequilibrium we will get a vcf file that has SNPs that are in approximate linkage equilibrium. 
+
+We are using the program **PLINK** and the function *--indep-pairwise* to determine which SNPs are in linkage disequilibrium. This function determines the correlations between the genotype allele counts. There are three values that need to be set with this function: 1) window, 2) step, 3)r2. The Window is the size of the variants that are assessed. The step is the variant count to shift the window. An r2 value is calculated between pairs of variants in the given window and values greater than the specified threshold are noted and pruned out (i.e. higher r2 values will prune out less variants).
 
 ## Step 1: Plink
 
 ### Inputs
+1. Filtered vcf file (from 08_SNPfiltR step)
 
 ### Flags
 `--vcf`  
@@ -16,7 +19,7 @@ Linkage disequlibrium is when there is nonrandom association of alleles between 
 
 ### Script
 
-1. Run plink to get prune in file
+Run plink to get that file of SNPs that are in approximate linkage equilibrium (prune in file)
 
 ```
 #!/bin/bash
@@ -28,26 +31,32 @@ Linkage disequlibrium is when there is nonrandom association of alleles between 
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=EMAIL
 
+infile=$1
+outfile=$2
 
 module load StdEnv/2020
 module load plink/1.9b_6.21-x86_64
 
-
-infile=$1
-outfile=$2
+mkdir $outfile
 
 
-plink  --vcf $infile --double-id --allow-extra-chr --make-bed --out Temp_data
+plink --vcf $infile --double-id --allow-extra-chr --make-bed --out temp_data
 
-plink --bfile Temp_data --allow-extra-chr --set-missing-var-ids @:# --make-bed --out sorted_data
+plink --bfile temp_data --allow-extra-chr --set-missing-var-ids @:# --make-bed --out sorted_data
 
-plink --bfile sorted_data --allow-extra-chr --pca --out $outfile
+plink --bfile sorted_data --allow-extra-chr --indep-pairwise 50 5 0.8 --out $outfile
 ```
+
 ### Outputs
+1. filename.prune.in (this is the file we want to use - it is the SNP list that is in approximate linkage equilibrium)
+2. filename.prune.out (this is the file that specifies the SNPs that are removed in order to get the SNP list to be in approximate linkage equilibrium)
+3. filename.log (tells you the number of SNPs that were removed - in this case ## out of ## variants removed)
 
 ## Step 2: Vcftools
 
 ### Inputs
+1. Filtered vcf file (from 08_SNPfiltR step - same input as what was put into PLINK above)
+2. filename.prune.in (list from PLINK of which SNPs to include to have approximate linkage equilibrium)
 
 ### Flags
 `--gzvcf`  
@@ -58,7 +67,7 @@ plink --bfile sorted_data --allow-extra-chr --pca --out $outfile
 
 ### Script
 
-2. Run vcftools to get new vcf file with only prune in SNPs
+Run vcftools to get new vcf file with only prune in SNPs
 ```
 #!/bin/bash
 #SBATCH -c 4
@@ -80,3 +89,4 @@ vcftools --gzvcf $infile --snps $list --recode --recode-INFO-all --out $outfile
 
 ```
 ### Outputs
+A new vcf file that only includes that SNPs that are in approximate linkage equilibrium. This vcf file will end with **.recode.vcf**
