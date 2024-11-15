@@ -59,11 +59,10 @@ plink --bfile sorted_data --allow-extra-chr --indep-pairwise 50 5 0.8 --out $out
 2. filename.prune.in (list from PLINK of which SNPs to include to have approximate linkage equilibrium)
 
 ### Flags
-`--gzvcf`  
-`--snps`  
-`--recode`  
-`--recode-INFO-all`  
-`--out`  
+`--gzvcf` Indicates that the input file is a compressed vcf file.  
+`--snps` Indicates a file with a list of SNPs to include in the output.    
+`--recode` Required to indicate that the output is a vcf file.    
+`--recode-INFO-all` Indicates that all the INFO key will be kept in the output vcf file.    
 
 ### Script
 
