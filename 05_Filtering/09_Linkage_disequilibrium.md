@@ -11,11 +11,11 @@ We are using the program **PLINK** and the function *--indep-pairwise* to determ
 1. Filtered vcf file (from 08_SNPfiltR step)
 
 ### Flags
-`--vcf`  
-`--double-id`  
-`--allow-extra-chr`  
-`--make-bed`  
-`--indep-pairwise`  
+`--vcf` Indicates that the input file is in vcf format.   
+`--double-id` Needed to indicate that there is only one ID (for "both family and within-family") (required for this dataset)  
+`--allow-extra-chr` Needed if chromosomes or contigs start with additional characters other than a digit (required flag for this dataset)  
+`--make-bed` Needed to create a new plink binary fileset (required flag)  
+`--indep-pairwise` Is used to produce a subset of SNPs that are in approximate linkage equilibrium. Requires three input values - window, step, r2. We are using 50, 5, 0.8. 
 
 ### Script
 
