@@ -18,7 +18,7 @@ The majority of the SNP filtering will be done using the R package **SNPfiltR**.
 
 ## Filtering settings
 
-See R markdown (*01_VCF_filtering-HO0.6.Rmd*) for the code that was ran and for the graphs that were used to help infrom the settings.  
+See R markdown (*01_VCF_filtering-HO0.6.Rmd*) for the code that was ran and for the graphs that were used to help infrom the settings.See supplementary material for tests done on filtering settings.   
 
 **Input vcf file was first filtered to have a max observed heterozygosity of 0.6 in *populations* in STACKS**
   
