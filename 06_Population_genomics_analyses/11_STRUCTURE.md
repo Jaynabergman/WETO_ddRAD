@@ -22,4 +22,18 @@
   
 3. Type in the command line: chmod u+x create_strauto_slurm_scripts.py
 
-4. 
+4. Edit the input.py file:
+- change burnin (i.e. 300,000)
+- Change mcmc (i.e. 1,000,000)
+- number of individuals
+- number of loci
+- max number of populations
+- number of kruns
+
+5. Type in the command line: ./strauto_1.py (follow instructions)
+
+6. Type in the command line: ./create_strauto_slurm_scripts.py
+
+7. Type in the command line: bash submit_strauto_jobs.sh
+
+8. Once all jobs have completed - type in the command line: bash post_strauto.sh
