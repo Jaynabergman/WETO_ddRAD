@@ -1,6 +1,8 @@
 # Principal Component Analysis
 
 ## Background
+Principal component analysis (PCA) is a multivariate analysis that reduces the dimensionality of a dataset while preserving the covariance. The data is reduced into principal components (PC), where each one explains a portion of the genomic variation among the individuals.  
+
 
 
 pca_plink.sh
