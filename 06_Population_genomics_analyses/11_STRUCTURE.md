@@ -1,7 +1,7 @@
 # STRUCTURE
 
 ## Background
-
+We are using STRUCTURE (Pritchard and 2000) in Compute Canada  The following website has steps and python scripts to run STRUCTURE and STRUCTURE Harvester (to choose the best fit k).
 
 ### Files & inputs 
 1) create_strauto_slurm_scripts.py
