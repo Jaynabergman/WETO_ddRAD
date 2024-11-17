@@ -1,7 +1,34 @@
 # STRUCTURE
 
 ## Background
-We are using STRUCTURE (Pritchard and 2000) in Compute Canada  The following website has steps and python scripts to run STRUCTURE and STRUCTURE Harvester (to choose the best fit k).
+To model clusters based on allele frequencies we will use the program STRUCTURE (Prichard et al., 2000) and run it in Digital Research Alliance of Canada (DRAC). The following DRAC website has steps and python scripts to run STRUCTURE and STRUCTURE Harvester (to choose the best fit k).
+
+## STRUCTURE input file
+We will use *populations* in **STACKS** to get the structure input file from the filtered vcf file. 
+
+populations_str.sh
+```
+#!/bin/bash
+#SBATCH -c 4
+#SBATCH --mem=28GB
+#SBATCH --time=10:00:00
+#SBATCH -o str_%A.out
+#SBATCH -e str_%A.err
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=EMAIL
+
+
+vcf=$1
+outfolder=$2
+popmap=$3
+
+
+mkdir $outfolder
+
+
+~/local/bin/populations -V $vcf -O $outfolder --popmap $popmap --fstats --structure --vcf
+```
+## STRUCTURE 
 
 ### Files & inputs 
 1) create_strauto_slurm_scripts.py
@@ -10,6 +37,7 @@ We are using STRUCTURE (Pritchard and 2000) in Compute Canada  The following web
 4) harvesterCore.py
 5) structureHarvester.py
 6) filename.str
+
 
 ### Steps
 1. Edit structure file by removing the header line (first line in the file) and change the file extension to .str
