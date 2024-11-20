@@ -39,7 +39,7 @@ See R markdown (*01_VCF_filtering-HO0.5.Rmd*) for the code that was ran and for 
 | 8. | Missing by sample <br> *missing_by_sample* | 0.5 | Four individuals removed <br> AS-3, WETO22-086, WETO23-239, RA-04 |
 | 9. | Missing by SNP <br> *missing_by_snp* | 0.96 | 64.05% of SNPs fell below the cutoff - 8,491 SNPs retained |
 | 10. | Missing by sample <br> *missing_by_sample* | 0.2 | All individuals less than 20% missing data <br> 38 have less than 10% missing data |
-| 11. | Linkage disequilibrium | 50 5 0.8 | Retained 5,031 SNPs (removed 3,460 SNPs) |
+| 11. | Linkage disequilibrium <br> **DONE IN PLINK** | 50 5 0.8 | Retained 5,031 SNPs (removed 3,460 SNPs) |
   
 **Number of SNPs retained:** 5,031  
 **Number of individuals:** 40  
@@ -52,7 +52,7 @@ See R markdown (*01_VCF_filtering-HO0.5.Rmd*) for the code that was ran and for 
 | 6. | Missing by sample <br> *missing_by_sample* | 0.9 | Two individuals removed <br> DR4 and WETO23-107 |
 | 7. | Missing by SNP <br> *missing_by_snp* | 0.9 | 99.2% of SNPs fell below the cutoff - 17,704 SNPs retained |
 | 8. | Missing by sample <br> *missing_by_sample* | 0.55 | All individuals less than 55% missing data <br> 38 have less than 15% missing data |
-| 9. | Linkage disequilibrium | 50 5 0.8 | Retained 10,342 SNPs (removed 7,362 SNPs) |
+| 9. | Linkage disequilibrium <br> **DONE IN PLINK** | 50 5 0.8 | Retained 10,342 SNPs (removed 7,362 SNPs) |
   
 **Number of SNPs retained:** 10,342  
 **Number of individuals:** 44  
