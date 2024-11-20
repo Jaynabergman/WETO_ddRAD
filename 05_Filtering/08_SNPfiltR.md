@@ -18,17 +18,17 @@ The majority of the SNP filtering will be done using the R package **SNPfiltR**.
 
 ## Filtering settings
 
-See R markdown (*01_VCF_filtering-HO0.6.Rmd*) for the code that was ran and for the graphs that were used to help infrom the settings.See supplementary material for tests done on filtering settings.   
+See R markdown (*01_VCF_filtering-HO0.5.Rmd*) for the code that was ran and for the graphs that were used to help infrom the settings.See supplementary material for tests done on filtering settings.   
 
-**Input vcf file was first filtered to have a max observed heterozygosity of 0.6 in *populations* in STACKS**
+**Input vcf file was first filtered to have a max observed heterozygosity of 0.5 in *populations* in STACKS.** 71,000 sites were filtered out - resulting in 4,606,447 varaint sites to start with.  
   
 | Step | Filter | Rational of filter | Setting | Reported values |
 | --- | --- | --- | --- | --- |
-| 1. | Genotype depth <br> *hard_filter(depth=5)* | Gives support for the confidence of a genotype call | 5 | |
-| 2. | Geotype qaulity <br> *hard_filter(gq=20)* | Support to minize genotype erorrs | 20 | |
-| 3. | Allele balance <br> *filter_allele_balance(min.ratio = 0.2, max.ratio = 0.8)* | Gets rid of SNPs outside of expected heterozygosity range | 0.2 - 0.8 | |
-| 4. | Maximum depth per SNP <br> *max_depth(maxdepth=28)* | Removes excessively high depth which could indicate multilocus contigs | 28 | |
-| 5. | Minor allele count <br> *min_mac(min.mac = 3)* | Removes potentially artifactual called SNPs | 3 | |
+| 1. | Genotype depth <br> *hard_filter(depth=5)* | Gives support for the confidence of a genotype call | 5 | 28.98% of genotypes fall below a read depth of 5 (converted to NA) |
+| 2. | Geotype qaulity <br> *hard_filter(gq=20)* | Support to minize genotype erorrs | 20 | 0.8% of genotypes fall below a quality score of 20 (converted to NA) |
+| 3. | Allele balance <br> *filter_allele_balance(min.ratio = 0.2, max.ratio = 0.8)* | Gets rid of heterozygous SNPs outside of expected heterozygosity range | 0.2 - 0.8 | 10.79% of heterozygous genotypes fall outside of this range (converted to NA) |
+| 4. | Maximum depth per SNP <br> *max_depth(maxdepth=22)* | Removes excessively high depth which could indicate multilocus contigs | 22 | 4,411,750 SNPs retained |
+| 5. | Minor allele count <br> *min_mac(min.mac = 3)* | Removes potentially artifactual called SNPs | 3 | 49.59% of SNPs fell below a mac of 3 - 2,224,037 SNPs retained |
 
 **Dataset with filtering scheme 1: Less missing data**  
 
