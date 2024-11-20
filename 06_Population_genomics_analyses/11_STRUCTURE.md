@@ -4,7 +4,7 @@
 To model clusters based on allele frequencies we will use the program STRUCTURE (Prichard et al., 2000) and run it in Digital Research Alliance of Canada (DRAC). The following DRAC website has steps and python scripts to run STRUCTURE and STRUCTURE Harvester (to choose the best fit k).
 
 ## STRUCTURE input file
-We will use *populations* in **STACKS** to get the structure input file from the filtered vcf file. 
+We will use *populations* in **STACKS** to get the structure input file from the filtered vcf file. (output will be a file with a .str ending)
 
 populations_str.sh
 ```
