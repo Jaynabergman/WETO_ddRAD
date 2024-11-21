@@ -10,7 +10,7 @@ Principal component analysis (PCA) is a multivariate analysis that reduces the d
 ### Flags
 `--pca` Extracts top 20 PCs and writes a file of the Eigenvectors and eigenvalues.   
 
-### running PLINK
+### Running PLINK
 pca_plink.sh
 ```
 #!/bin/bash
