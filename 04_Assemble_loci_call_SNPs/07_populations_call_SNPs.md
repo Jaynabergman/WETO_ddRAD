@@ -11,10 +11,10 @@ We then call SNPs using the module *populations*. This module is able to execute
 
 ### Flags
 *populations no filters*  
-`P` Input directory that contains the BAM files (from gstacks)  
-`M` The population map with the list of samples in the BAM files   
+`-P` Input directory that contains the BAM files (from gstacks)  
+`-M` The population map with the list of samples in the BAM files   
 `--max-obs-het` Specifies the maximum observed heterozygosity required to process a nucleotide site at a locus  
-`O` The output directory  
+`-O` The output directory  
 `--vcf` Determines that the output will be SNPs in variant call format (vcf).  
 
 ## Running populations
