@@ -89,3 +89,14 @@ vcftools --gzvcf $infile --snps $list --recode --recode-INFO-all --out $outfile
 ```
 ### Outputs
 A new vcf file that only includes that SNPs that are in approximate linkage equilibrium. This vcf file will end with **.recode.vcf**
+
+## Notes
+Several combination of values were tested for the window, step and r2 values. The settings, SNPs removed, and SNPs kept are shown below. PCAs were generated for each combination and they were all identical (See sup mat). Thus we went with the 50 5 0.8 because it has been recommended in the literature and it resulted in the most SNPs kept.  
+
+| Settings (window, step, r2) | SNPs removed | SNPs kept |
+| --- | --- | --- |
+| 50 5 0.5 | 12,504 | 7,865 |
+| 50 10 0.5 | 12,441 | 7,928 |
+| 50 10 0.7 | 10,235 | 10,134 |
+| **50 5 0.8** | 9,184 | 11,185 |
+| 50 10 0.8 | 9,156 | 11,213 |
