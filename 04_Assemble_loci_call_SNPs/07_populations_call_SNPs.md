@@ -6,6 +6,8 @@ We then call SNPs using the module *populations*. This module is able to execute
 
 
 ### Inputs
+1. Path to the *gstacks* folder
+2. Population map with individual samples and which populations they belong to (for our purposes we set everything to a single population to not add any prior bias)
 
 ### Flags
 *populations no filters*  
@@ -16,8 +18,6 @@ We then call SNPs using the module *populations*. This module is able to execute
 `--vcf` Determines that the output will be SNPs in variant call format (vcf).  
 
 ## Running populations
-
-
   
 populations_filters.sh
 ```
