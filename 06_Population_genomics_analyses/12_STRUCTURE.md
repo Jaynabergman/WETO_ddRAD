@@ -6,6 +6,11 @@ To model clusters based on allele frequencies we will use the program STRUCTURE 
 ## STRUCTURE input file
 We will use *populations* in **STACKS** to get the structure input file from the filtered vcf file. (output will be a file with a .str ending)
 
+### Inputs
+
+### Flags
+
+### Script
 populations_str.sh
 ```
 #!/bin/bash
@@ -28,7 +33,7 @@ mkdir $outfolder
 
 ~/local/bin/populations -V $vcf -O $outfolder --popmap $popmap --fstats --structure --vcf
 ```
-## STRUCTURE 
+## Running STRUCTURE 
 
 ### Files & inputs 
 1) create_strauto_slurm_scripts.py
@@ -36,7 +41,7 @@ mkdir $outfolder
 3) strauto_1.py
 4) harvesterCore.py
 5) structureHarvester.py
-6) filename.str
+6) filename.str (output from *populations* above)
 
 
 ### Steps
