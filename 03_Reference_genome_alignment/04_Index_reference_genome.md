@@ -10,7 +10,7 @@ For this pipeline we are using a western toad reference genome that was previous
 1) Reference genome in Fasta format
 
 ### Flags
-`-p` prefix of the outputs
+`-p` prefix of the outputs  
 `a` set as **bwtsw** because... 
 
 ## Running BWA
