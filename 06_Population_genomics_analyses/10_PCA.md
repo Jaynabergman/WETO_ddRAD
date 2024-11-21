@@ -3,8 +3,14 @@
 ## Background
 Principal component analysis (PCA) is a multivariate analysis that reduces the dimensionality of a dataset while preserving the covariance. The data is reduced into principal components (PC), where each one explains a portion of the genomic variation among the individuals.  
 
+## 1. PLINK
+### Inputs
+1. Filtered vcf file (from previous steps)
 
+### Flags
+`--pca` Extracts top 20 PCs and writes a file of the Eigenvectors and eigenvalues.   
 
+### running PLINK
 pca_plink.sh
 ```
 #!/bin/bash
@@ -31,3 +37,11 @@ plink --bfile Temp_data --allow-extra-chr --set-missing-var-ids @:# --make-bed -
 
 plink --bfile sorted_data --allow-extra-chr --pca --out $outfile
 ```
+### Outputs
+1. filename.eigenvec (file with the Eigenvectors)
+2. filename.eigenval (file with the Eigenvalues)
+
+## 2. Generating plots in R
+Download the files with the eigenvectors and eigenvalues to the desktop. Plots to visual the explained variance and to see PC1 vs PC2, PC1 vs PC3, etc. were generated in R. There is an external rmd created to run this code (*02_PCA.rmd*).
+
+
