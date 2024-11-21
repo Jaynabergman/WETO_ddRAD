@@ -2,7 +2,7 @@
 
 ## Background
 
-The majority of the SNP filtering will be done using the R package **SNPfiltR**. This R package contains functions that are helpful for visualizing metrics for determining quality and missing data. The only filter applied before the vcf file is brought into R is the *--max-obs-het* set in *populations* in **STACKS**. 
+The majority of the SNP filtering will be done using the R package **SNPfiltR**. This R package contains functions that are helpful for visualizing metrics for determining quality and missing data. The only filter applied before the vcf file is brought into R is the *--max-obs-het* set in *populations* in **STACKS**. The input vcf file was downloaded to my desktop and an external rmd file was createdm (*01_VCF_filtering-HO0.5.Rmd*).  
 
 ### Inputs
 1. vcf file (generated with *popuations* in **STACKS**)
@@ -18,7 +18,7 @@ The majority of the SNP filtering will be done using the R package **SNPfiltR**.
 
 ## Filtering settings
 
-See R markdown (*01_VCF_filtering-HO0.5.Rmd*) for the code that was ran and for the graphs that were used to help infrom the settings. See supplementary material for testing values of different filtering settings.   
+See R markdown (*01_VCF_filtering-HO0.5.Rmd*) for the code that was ran and for the graphs that were used to help infrom the settings. See supplementary material for testing values of different filtering settings (i.e. allele balance & max depth).   
 
 **Input vcf file was first filtered to have a max observed heterozygosity of 0.5 in *populations* in STACKS.** 71,000 sites were filtered out - resulting in 4,606,447 varaint sites to start with.  
   
