@@ -67,7 +67,9 @@ plink --bfile sorted_data --allow-extra-chr --indep-pairwise 50 5 0.8 --out $out
 
 ### Script
 
-Run vcftools to get new vcf file with only prune in SNPs
+Run vcftools to get new vcf file with only prune in SNPs.  
+
+LD_vcftools.sh
 ```
 #!/bin/bash
 #SBATCH -c 4
@@ -92,7 +94,7 @@ vcftools --gzvcf $infile --snps $list --recode --recode-INFO-all --out $outfile
 A new vcf file that only includes that SNPs that are in approximate linkage equilibrium. This vcf file will end with **.recode.vcf**
 
 ## Notes
-Several combination of values were tested for the window, step and r2 values. The settings, SNPs removed, and SNPs kept are shown below. PCAs were generated for each combination and they were all identical (See sup mat). Thus we went with the 50 5 0.8 because it has been recommended in the literature and it resulted in the most SNPs kept.  
+Several combination of values were tested for the window, step and r2 values (using a vcf file that started with 20,369 SNPs). The settings, SNPs removed, and SNPs kept are shown below. PCAs were generated for each combination and they were all identical (See sup mat). Thus we went with the 50 5 0.8 because it has been recommended in the literature and it resulted in the most SNPs kept.  
 
 | Settings (window, step, r2) | SNPs removed | SNPs kept |
 | --- | --- | --- |
