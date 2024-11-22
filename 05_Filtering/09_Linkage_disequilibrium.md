@@ -19,8 +19,9 @@ We are using the program **PLINK** and the function *--indep-pairwise* to determ
 
 ### Script
 
-Run plink to get that file of SNPs that are in approximate linkage equilibrium (prune in file)
+Run plink to get that file of SNPs that are in approximate linkage equilibrium (prune in file).  
 
+plink_LD.sh
 ```
 #!/bin/bash
 #SBATCH -c 4
