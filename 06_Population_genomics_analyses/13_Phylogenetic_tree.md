@@ -3,15 +3,51 @@
 ## Background
 
 ## Filter out variant sites 
-In order to run IQTree with the ASC flag, which tells the models that there are only invariant sites, we need to remove any sites that resulted as variant sites during the filtering process (i.e. could have occurred due to removing individuals).  
+In order to run IQTree with the ASC flag, which tells the models that there are only invariant sites, we need to remove any sites that resulted as variant sites during the filtering process (i.e. could have occurred due to removing individuals). We will do this with the R package *SNPfiltR* using the function `min.mac(mac=3)`.  
 
-We will do this in the R package in SNPfiltR using the function `min.mac(mac=1)`. 
+- Input vcf file - HO_0.5_AB_0.2-0.8_mac3_imiss20_SNP96_LD.recode.vcf  
+- Starting number of SNPs - **5,031**  
+- Final number of SNPs - **4,942**
 
 ## vcf to fasta 
-https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md
+We need to convert the vcf file (from the step above) to a fasta file. We will use the pythong script and tutorial from the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.  
+
+submit_python.sh
+```
+#!/bin/bash
+#SBATCH -c 1
+#SBATCH --mem=64GB
+#SBATCH --account=NAME
+#SBATCH --time=1-12:00
+#SBATCH -o fasta_%A.out
+#SBATCH -e fasta_%A.err
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=EMAIL
+
+module load python
+
+
+inputfile=$1
+
+
+python vcf2phylip.py --input $inputfile --phylip-disable --fasta
+```
+### Output
+A fasta file with the same file name as the input vcf file.
 
 ## IQTree
 
+### Input files
+Fasta file generated from the filtered vcf file (steps above).
+
+### Flags
+`-s` Directory of input alignment files.  
+`-m` This tells the program which models to assess for the model select. We use **MFP+ASC** which stands for **Model finder Plus and to apply ascertainment bias correction models** (ASC is needed when there is SNP data with only invariant sites).  
+`-mtree` Indates for the program to perfrom full tree search for every model.  
+`--seqtype` Indicates what type of data is in the input file. In this case we are specifying that we are using DNA data.  
+`-B` Turns on ultrafast bootstap for the generated trees. This will generate confidence intervals for the branch support.  
+
+### Running the program
 ```
 #!/bin/bash
 #SBATCH -c 4
@@ -25,12 +61,14 @@ https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md
 
 inputfile=$1
 
-
-module load intel/2020.1.217
 module load StdEnv/2020
-module load iq-tree
+module load gcc/9.3.0
+module load iq-tree/2.2.2.7
 
 
 
-iqtree2 -s $inputfile -m MFP -mtree
+iqtree2 -s $inputfile -m MFP+ASC -mtree --seqtype DNA -B 1000
 ```
+
+### Output
+
