@@ -1,6 +1,7 @@
 # Phylogenetic tree
 
 ## Background
+Phylogenetic trees can help to answer "deep phylogenetic" questions. We are using the program **IQTREE** to reconstruct a maximum likelihood phylogenetic tree. 
 
 ## Filter out variant sites 
 In order to run IQTree with the ASC flag, which tells the models that there are only invariant sites, we need to remove any sites that resulted as variant sites during the filtering process (i.e. could have occurred due to removing individuals). We will do this with the R package *SNPfiltR* using the function `min.mac(mac=3)`.  
