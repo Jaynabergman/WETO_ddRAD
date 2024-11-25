@@ -71,4 +71,6 @@ iqtree2 -s $inputfile -m MFP+ASC -mtree --seqtype DNA -B 1000
 ```
 
 ### Output
-
+- filename.iqtree (Full results of the run - this is the main report file)  
+- filename.log (Log of the entire run)
+- filename.treefile (Maximum likelihood tree in NEWICK format - need to use a treeview program (i.e. Figtree) to visualize the tree)
