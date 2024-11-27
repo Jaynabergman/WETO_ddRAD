@@ -3,13 +3,6 @@
 ## Background
 Phylogenetic trees can help to answer "deep phylogenetic" questions. We are using the program **IQTREE** to reconstruct a maximum likelihood phylogenetic tree. 
 
-## Filter out variant sites 
-In order to run IQTree with the ASC flag, which tells the models that there are only invariant sites, we need to remove any sites that resulted as variant sites during the filtering process (i.e. could have occurred due to removing individuals). We will do this with the R package *SNPfiltR* using the function `min.mac(mac=3)`.  
-
-- Input vcf file - HO_0.5_AB_0.2-0.8_mac3_imiss20_SNP96_LD.recode.vcf  
-- Starting number of SNPs - **5,031**  
-- Final number of SNPs - **4,942**
-
 ## vcf to fasta 
 We need to convert the vcf file (from the step above) to a fasta file. We will use the pythong script and tutorial from the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.  
 
