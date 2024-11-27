@@ -1,4 +1,4 @@
-# Phylogenetic tree
+# Phylogenetic tree - IQTree
 
 ## Background
 Phylogenetic trees can help to answer "deep phylogenetic" questions. We are using the program **IQTREE** to reconstruct a maximum likelihood phylogenetic tree. 
