@@ -6,6 +6,10 @@ Phylogenetic trees can help to answer "deep phylogenetic" questions. We are usin
 ## vcf to fasta 
 We need to convert the vcf file (from the step above) to a fasta file. We will use the pythong script and tutorial from the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.  
 
+### Inputs
+1. Filtered vcf file
+
+### Script
 submit_python.sh
 ```
 #!/bin/bash
