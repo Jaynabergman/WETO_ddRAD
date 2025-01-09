@@ -53,7 +53,7 @@ done
 exec 3<&-
 exec 4>&-
 ```
-2) Run fastp as a diagnostic tool to initially assess reads and decide what to set `f` and `F` to. Once fastp is ran the outputs need to be looked at in multiqc.
+2) Run fastp as a diagnostic tool to initially assess reads and decide what to set `f` and `F` to. Once fastp is ran the outputs need to be looked at in multiqc (see *03_multiqc.md*).
   
 array_fastp_diagnostic.sh
 ```
