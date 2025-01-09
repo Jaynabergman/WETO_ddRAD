@@ -1,9 +1,9 @@
 # Linkage Disequilibrium
 
 ## Background
-Linkage disequlibrium is when there is nonrandom association of alleles between two or more loci. We filter our data in order to get a dataset with loci that are likely randomly associated with each other. Thus by filtering for linkage disequilibrium we will get a vcf file that has SNPs that are in approximate linkage equilibrium. 
+Linkage disequlibrium is when there is nonrandom association of alleles between two or more loci. We want to have a dataset with loci that are likely randomly associated with each other so we filter out SNPs that are highly correlated to one another. Thus, by filtering for linkage disequilibrium we will get a vcf file that has SNPs that are in approximate linkage equilibrium. 
 
-We are using the program **PLINK** and the function *--indep-pairwise* to determine which SNPs are in linkage disequilibrium. This function determines the correlations between the genotype allele counts. There are three values that need to be set with this function: 1) window, 2) step, 3)r2. The Window is the size of the variants that are assessed. The step is the variant count to shift the window. An r2 value is calculated between pairs of variants in the given window and values greater than the specified threshold are noted and pruned out (i.e. higher r2 values will prune out less variants).
+We are using the program **PLINK** and the function *--indep-pairwise* to determine which SNPs are in linkage disequilibrium. This function determines the correlations between the genotype allele counts. There are three values that need to be set with this function: 1) window, 2) step, 3) r2. The Window is the size of the variants that are assessed. The step is the variant count to shift the window. An r2 value is calculated between pairs of variants in the given window and values greater than the specified threshold are noted and pruned out (i.e. higher r2 values will prune out less variants).
 
 ## Step 1: Plink
 
@@ -67,7 +67,7 @@ plink --bfile sorted_data --allow-extra-chr --indep-pairwise 50 5 0.8 --out $out
 
 ### Script
 
-Run vcftools to get new vcf file with only prune in SNPs.  
+Run vcftools to get new vcf file with only the prune in SNPs.  
 
 LD_vcftools.sh
 ```
@@ -94,12 +94,12 @@ vcftools --gzvcf $infile --snps $list --recode --recode-INFO-all --out $outfile
 A new vcf file that only includes that SNPs that are in approximate linkage equilibrium. This vcf file will end with **.recode.vcf**
 
 ## Notes
-Several combination of values were tested for the window, step and r2 values (using a vcf file that started with 20,369 SNPs). The settings, SNPs removed, and SNPs kept are shown below. PCAs were generated for each combination and they were all identical (See sup mat). Thus we went with the 50 5 0.8 because it has been recommended in the literature and it resulted in the most SNPs kept.  
+Several combination of values were tested for the window, step and r2 values (using a vcf file that started with 20,369 SNPs). The settings, SNPs removed, and SNPs kept are shown below. PCAs were generated for each combination of values and all the PCAs showed identical clustering of the individuals (See supplimenty material for the PCAs). I used the following combination of values: **50 5 0.8**. This is because these values have been recommended in the literature, it resulted in the most SNPs retained, and the clustering of individuals were identical regardless of the values.  
 
 | Settings (window, step, r2) | SNPs removed | SNPs kept |
 | --- | --- | --- |
 | 50 5 0.5 | 12,504 | 7,865 |
 | 50 10 0.5 | 12,441 | 7,928 |
 | 50 10 0.7 | 10,235 | 10,134 |
-| **50 5 0.8** | 9,184 | 11,185 |
+| **50 5 0.8** <br> (used these values) | 9,184 | 11,185 |
 | 50 10 0.8 | 9,156 | 11,213 |
