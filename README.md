@@ -5,7 +5,7 @@
 - **Spatial scale:** Broadscale population analysis
 - **Goal:** Assess the genetic structure of western toads (*Anaxyrus boreas*) in the Canadian portion of the range.
 - **Background:** The western toads in Canada are currently recognized as two populations (calling population and non-calling population: Pauly, 2008) which are delineated as separate Designatable Units (DUs: COSEWIC, 2012). This designation was determined by morphological and behavioural differences among the populations (i.e. the calling population possesses a vocal sac and a pronounced breeding calling, and the lack thereof in the non-calling population). Genetic differences have yet to be assessed between these two populations.
-### Data - Plate1
+### Data - Plate1 (NOT USED)
 - **Sequencing Type:** Double digest restriction-site associated DNA sequencing (ddRADseq)
 - **Enzymes:** SbfI / MspI 
 - **Library prep:** Sent to Plateforme d’Analyses Génomiques of the Institut de Biologie Intégrative et des Systèmes (IBIS, Universite ́Laval, Quebec, Canada)
@@ -45,20 +45,25 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 ### Reference genome alignment
 4. Index reference genome in **BWA**
 5. Align reads to reference genome in **BWA**
-6. Filter for mapping quality in **samtools**
+
+### Build loci
+6. Build loci in *gstacks* module in **STACKS**
+7. Call SNPs in *populations* module in **STACKS** (filter for max observed heterozygosity at this step)
 
 ### Filtering 
-7. Filter for paralogs in **ngsParalog** and remove regions in **STACKS**
-8. Additional filtering of vcf files in **vcftools** and **PLINK** (see *Filtering overview* below)
+8. Filter SNPs in R package **SNPfiltR**
+9. Filter SNPs in linkage disequilibrium in **PLINK**
 
 ### Population genomic analysis
-9. Stats: Fst, Heterozygosity
 10. PCA
 11. DAPC
 12. STRUCTURE
-13. Isolation-by-distance
-14. Unrooted phylogenetic tree (Neighbour-joining)
-15. Entropy (?)
+13. Maximum likelihood phylogenetic tree (in **IQTree**)
+14. Fst values
+15. Isolation-by-distance (and significance test)
+16. Morphological boundary alignment
+17. Ecological Niche Models (*Maxent* models in **R**)
+  
 
 ## Filtering overview
 ### Decisions
