@@ -52,7 +52,7 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 
 ### Filtering 
 8. Filter SNPs in R package **SNPfiltR**
-9. Filter SNPs in linkage disequilibrium in **PLINK**
+9. Filter SNPs in linkage disequilibrium using **PLINK**
 
 ### Population genomic analysis
 10. PCA
@@ -61,8 +61,10 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 13. Maximum likelihood phylogenetic tree (in **IQTree**)
 14. Fst values
 15. Isolation-by-distance (and significance test)
-16. Morphological boundary alignment
-17. Ecological Niche Models (*Maxent* models in **R**)
+
+### Other analyses
+17. Morphological boundary alignment
+18. Ecological Niche Models (*Maxent* models in **R**)
   
 
 ## Filtering overview
@@ -74,7 +76,6 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 | Post-VCF file | Geotype depth | SNPflitR | 5 | Gives support for the confidence of a genotype call  |
 | Post-VCF file | Missing data (individual & locus) | vcftools | a) 50% <br> b) 80% | Missing percent of genotypes for each individual and locus |
 | Post-VCF file | Minor allele count (MAC) (locus) | vcftools | a) 3 <br> b) 5 | Sets the minimum number of copies for the minor alleles to be found at a locus |
-| Post-VCF file | Hardy-Weinberg Equilibrium (HWE) | Populations (STACKS) | a) Remove loci out of HWE (threshold < 0.001) <br> b) Leave all loci | Determines if the expected frequencies of the genotypes at a given locus are under HWE |
 | Post-VCF file | Linkage Disequilibrium (LD) | PLINK | Remove loci | Physical linkage or non-independent assortment leading to the non-random association of alleles at different loci |  
 
 ### Reporting (Pre-VCF file)
