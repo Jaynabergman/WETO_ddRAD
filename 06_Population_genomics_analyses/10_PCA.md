@@ -42,6 +42,6 @@ plink --bfile sorted_data --allow-extra-chr --pca --out $outfile
 2. filename.eigenval (file with the Eigenvalues)
 
 ## 2. Generating plots in R
-Download the files with the eigenvectors and eigenvalues to the desktop. Plots to visual the explained variance and to see PC1 vs PC2, PC1 vs PC3, etc. were generated in R. There is an external rmd created to run this code (*02_PCA.rmd*).
-
+1. Download the files with the eigenvectors and eigenvalues to the desktop.
+2. Plots to visual the explained variance and to see PC1 vs PC2, PC1 vs PC3, etc. are generated in R. There is an external rmd created to run this code (*02_PCA.rmd*).
 
