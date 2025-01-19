@@ -139,3 +139,6 @@ done
 A text file was generated with the sample name and the number of reads that were aligned to the reference genome. This textfile was downloaded to my desktop and the reads from each individual were summed.  \
   \
 **Total number of aligned reads = 917,788,446**
+
+### NOTES
+Also used `samtools view -c -F 4` to determine the total number of mapped reads = **NUM**
