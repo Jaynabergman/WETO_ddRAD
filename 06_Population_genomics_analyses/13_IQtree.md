@@ -46,6 +46,7 @@ Fasta file generated from the filtered vcf file (steps above).
 `-B` Turns on ultrafast bootstap for the generated trees. This will generate confidence intervals for the branch support.  
 
 ### Running the program
+iqtree.sh
 ```
 #!/bin/bash
 #SBATCH -c 4
