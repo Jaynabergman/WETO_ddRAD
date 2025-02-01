@@ -4,7 +4,7 @@
 Phylogenetic trees can help to answer "deep phylogenetic" questions. We are using the program **IQTREE** to reconstruct a maximum likelihood phylogenetic tree. Maximum likelyhood programs will find the tree that maximizes the probability of the data and uses nonparametric bootstrapping to get a confidence interval 
 
 ## vcf to nexus 
-We need to convert the vcf file (from the step above) to a nexus file. We will use the python script and tutorial from the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.  
+We need to convert the vcf file (from the step above) to a nexus file. We will use the binary nexus format of the file generated using the python script and tutorial found at the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.  
 
 ### Inputs
 1. Filtered vcf file
@@ -16,7 +16,7 @@ submit_python.sh
 #SBATCH -c 1
 #SBATCH --mem=64GB
 #SBATCH --account=NAME
-#SBATCH --time=1-12:00
+#SBATCH --time=0-08:00
 #SBATCH -o fasta_%A.out
 #SBATCH -e fasta_%A.err
 #SBATCH --mail-type=BEGIN,END,FAIL
@@ -28,15 +28,15 @@ module load python
 inputfile=$1
 
 
-python vcf2phylip.py --input $inputfile --phylip-disable --fasta
+python vcf2phylip.py --input $inputfile --phylip-disable --nexus --nexus-binary
 ```
 ### Output
-A fasta file with the same file name as the input vcf file.
+A nexus file and a binary nexus file with the same file name as the input vcf.
 
 ## IQTree
 
 ### Input files
-Fasta file generated from the filtered vcf file (steps above).
+Binary Nexus file generated from the filtered vcf file (steps above).
 
 ### Flags
 `-s` Directory of input alignment files.  
