@@ -1,10 +1,10 @@
 # Phylogenetic tree - IQTree
 
 ## Background
-Phylogenetic trees can help to answer "deep phylogenetic" questions. We are using the program **IQTREE** to reconstruct a maximum likelihood phylogenetic tree. Maximum likelyhood programs will find the tree that maximizes the probability of the data and uses nonparametric bootstrapping to get a confidence interval12555554 
+Phylogenetic trees can help to answer "deep phylogenetic" questions. We are using the program **IQTREE** to reconstruct a maximum likelihood phylogenetic tree. Maximum likelyhood programs will find the tree that maximizes the probability of the data and uses nonparametric bootstrapping to get a confidence interval 
 
-## vcf to fasta 
-We need to convert the vcf file (from the step above) to a fasta file. We will use the pythong script and tutorial from the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.  
+## vcf to nexus 
+We need to convert the vcf file (from the step above) to a nexus file. We will use the python script and tutorial from the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.  
 
 ### Inputs
 1. Filtered vcf file
