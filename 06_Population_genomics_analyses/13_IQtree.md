@@ -3,8 +3,8 @@
 ## Background
 Phylogenetic trees can help to answer "deep phylogenetic" questions. We are using the program **IQTREE** to reconstruct a maximum likelihood phylogenetic tree. Maximum likelyhood programs will find the tree that maximizes the probability of the data and uses nonparametric bootstrapping to get a confidence interval 
 
-## vcf to nexus 
-We need to convert the vcf file (from the step above) to a nexus file. We will use the binary nexus format because it allows for the ASC correction to be used in IQTree. The files will be generated using the python script and tutorial found at the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.
+## vcf to fasta 
+We need to convert the vcf file (from the step above) to a fasta file. The files will be generated using the python script and tutorial found at the following website: https://github.com/edgardomortiz/vcf2phylip/blob/master/README.md.
 
 ### Inputs
 1. Filtered vcf file
@@ -28,10 +28,10 @@ module load python
 inputfile=$1
 
 
-python vcf2phylip.py --input $inputfile --phylip-disable --nexus --nexus-binary
+python vcf2phylip.py --input $inputfile --phylip-disable --fasta
 ```
 ### Output
-A nexus file and a binary nexus file with the same file name as the input vcf.
+A fasta file with the same file name as the input vcf.
 
 ## IQTree
 
