@@ -36,7 +36,7 @@ A fasta file with the same file name as the input vcf.
 ## IQTree
 
 ### Input files
-Binary Nexus file generated from the filtered vcf file (steps above).
+Fasta file generated from the filtered vcf file (steps above).
 
 ### Flags
 `-s` Directory of input alignment files.  
@@ -73,3 +73,8 @@ iqtree2 -s $inputfile -m MFP+ASC -mtree --seqtype DNA -B 1000
 - filename.iqtree (Full results of the run - this is the main report file)  
 - filename.log (Log of the entire run)
 - filename.treefile (Maximum likelihood tree in NEWICK format - need to use a treeview program (i.e. Figtree) to visualize the tree)
+
+### NOTE
+IQTree cannot handle sites that are considered to be partially constant sites when the ASC model is being applied. Partially constant sites are one that have only alternate alleles in heterozygotes need to be removed. (i.e. GGGGR is considered to be partially constant. GGAGR would be an okay site because the A appeares outside of the abiguous site "R"). These are not actually problem sites outside of IQTree, but rather violate the assumptions of the ASC model specifically. Thus, these sites only need to be removed when running IQTree with the ASC model being applied.  
+
+The first time IQTree runs, there will be an error saying `ERROR: Invalid use of +ASC because of XXXX invariant sites in the alignment.` This error generates a new .phy file with these problem sites removed. In this case (using the **HO_0.5_AB_0.25-0.75_mac3_imiss33_SNP95_LD.recode.min4.fasta** input file starting with 11,950 SNPs) we lose 2,302 SNPs that are considered invaraint sites due to being partially constant. 
