@@ -18,7 +18,8 @@
 - **Range of individuals per site:** 1 to 5 (one site with 3 individuals, one with 5 individuals)
 <br>
 
-- **Reference genome:** Trumbo et al., 2023 (DOI: 10.1111/mec.17175)
+### Reference genome
+- **Published by:** Trumbo et al. (2023) (DOI: 10.1111/mec.17175)
 - **Genome size:** ~5GB
 <br>
 
