@@ -141,4 +141,4 @@ A text file was generated with the sample name and the number of reads that were
 **Total number of aligned reads = 917,788,446**
 
 ### NOTES
-Also used `samtools view -c -F 4` to determine the total number of mapped reads = **NUM**
+Also used `samtools view -c -F 4` to determine the total number of mapped reads = **917,788,446**
