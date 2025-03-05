@@ -53,12 +53,12 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 15. Isolation-by-distance (and significance test)
 
 ### Other analyses
-17. Morphological boundary alignment
-18. Ecological Niche Models (*Maxent* models in **R**)
+17. Morphological condordance with genetic boundaries
+18. Ecological Niche Models (*Maxent* models in **R**) and amount of Niche overlap
   
 
 ## Filtering overview
-### Decisions
+### Overview of major decisions
 | Stage | Filter | Program | Setting | Explaination |
 | --- | --- | --- | --- | --- |
 | Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 20 | Determines bases with a quality below the given threshold |
