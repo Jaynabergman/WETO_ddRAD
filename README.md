@@ -37,23 +37,23 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 4. Index reference genome in **BWA**
 5. Align reads to reference genome in **BWA**
 
-### Build loci
+### Assemble loci & call SNPs
 6. Build loci in *gstacks* module in **STACKS**
 7. Call SNPs in *populations* module in **STACKS** (filter for max observed heterozygosity at this step)
 
 ### Filtering 
 8. Filter SNPs in R package **SNPfiltR**
-9. Filter SNPs in linkage disequilibrium using **PLINK**
+9. Filter SNPs for linkage disequilibrium using **PLINK**
 
 ### Population genomic analysis
 10. PCA
 11. DAPC
 12. STRUCTURE
-13. Maximum likelihood phylogenetic tree (in **IQTree**)
-14. Fst values
+13. Fst values  
+14. Maximum likelihood phylogenetic tree (in **IQTree**)  
 15. Isolation-by-distance (and significance test)
 
-### Other analyses
+### Other analyses (in addition to genetic data)
 17. Morphological condordance with genetic boundaries
 18. Ecological Niche Models (*Maxent* models in **R**) and amount of Niche overlap
   
@@ -65,29 +65,29 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 | Pre-VCF file | Read quality | Fastp | Q (Phred score) >= 20 | Determines bases with a quality below the given threshold |
 | Pre-VCF file | Mapping quality | gstacks | Q >= 20 | Score that indicates the quality of the alignment (mapping) of a read to the reference genome |
 | Post-VCF file | Geotype depth | SNPflitR | 5 | Gives support for the confidence of a genotype call  |
-| Post-VCF file | Missing data (individual & locus) | vcftools | a) 50% <br> b) 80% | Missing percent of genotypes for each individual and locus |
-| Post-VCF file | Minor allele count (MAC) (locus) | vcftools | a) 3 <br> b) 5 | Sets the minimum number of copies for the minor alleles to be found at a locus |
-| Post-VCF file | Linkage Disequilibrium (LD) | PLINK | Remove loci | Physical linkage or non-independent assortment leading to the non-random association of alleles at different loci |  
+| Post-VCF file | Minor allele count (MAC) (locus) | SNPfiltR | 3 | Sets the minimum number of copies for the minor alleles to be found at a locus |
+| Post-VCF file | Missing data (per individual and per SNP) | SNPfiltR | a) <33% <br> b) <5% | Maximum amount of missing data allowed per individual (a) and per SNP (b) |
+| Post-VCF file | Linkage Disequilibrium (LD) | PLINK | 50 5 0.8 | Physical linkage or non-independent assortment leading to the non-random association of alleles at different loci |  
 
 ### Reporting (Pre-VCF file)
 Starting number of reads: 1,506,075,128
 | Filtering step | Number of Individuals | Reported value |
 | --- | --- | --- |
 | Read quality (Q>=20) | 48 (inclusive of negative controls) | 929,487,304 reads |
-| Mapped reads (only primary aligned reads) | 46 | 917,788,446 reads |
+| Mapped reads (only primary aligned reads) | 46 (no negative controls) | 917,788,446 reads |
 | Mapping quality (Q>=20) | 46 | 1,772,249 Genotyped loci |
 | Read depth (**gstacks**) | 46 | mean=12.0X |
 
 ### Datasets (Post-VCF file)
-| Filter | Dataset 1 | Dataset 2 | Dataset 3 | Dataset 4 | Dataset 5 | Dataset 6 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Max observed Heterozygosity| 0.6 | 0.6 | 0.7 | 0.7 | 0.8 | 0.8 |
-| Genotype depth | 5 | 5 | 5 | 5 | 5 | 5 |
-| Genotype quality (Q) | 20 | 20 | 20 | 20 | 20 | 20 |
-| Maximum depth (SNP) | 28 |  |  |  |  |  |  |  |
-| MAC | 3 | 3 | 3 | 3 | 3 | 3 |
-| Missingness by SNP | 5% |  |  |  |  |  |
-| Missingness by individual | 30% |  |  |  |  |  |
-| Number of individuals | 40 | # | # | # | # | # |
-| Number of SNPs | 11,185 | # | # | # | # | # |
+| Filter | Final Dataset |
+| --- | --- |
+| Max observed Heterozygosity| 0.6 |
+| Minimum genotype depth | 5 |
+| Minimum genotype quality (Q) | 20 |
+| Maximum depth (SNP) | 28 |
+| MAC | 3 |
+| Missingness by SNP | 5% |
+| Missingness by individual | 30% |
+| Number of individuals | 40 |
+| Number of SNPs | 11,950 |
 
