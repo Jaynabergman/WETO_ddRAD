@@ -46,12 +46,12 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 9. Filter SNPs for linkage disequilibrium using **PLINK**
 
 ### Population genomic analysis
-10. PCA
-11. DAPC
-12. STRUCTURE
-13. Fst values  
-14. Maximum likelihood phylogenetic tree (in **IQTree**)  
-15. Isolation-by-distance (and significance test)
+10. PCA (**PLINK**)
+11. DAPC (R package **Adegenet**)
+12. STRUCTURE (**Compute Canada STRUCTURE scripts**)
+13. Fst values (R package **dartR**)
+14. Maximum likelihood phylogenetic tree (**IQTree**)  
+15. Isolation-by-distance (and significance test) (R package **dartR** and **baseR**)
 
 ### Other analyses (in addition to genetic data)
 17. Morphological condordance with genetic boundaries
