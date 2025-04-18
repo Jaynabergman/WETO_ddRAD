@@ -76,7 +76,7 @@ Starting number of reads: 1,506,075,128
 | Read quality (Q>=20) | 48 (inclusive of negative controls) | 929,487,304 reads |
 | Mapped reads (only primary aligned reads) | 46 (no negative controls) | 917,788,446 reads |
 | Mapping quality (Q>=20) | 46 | 1,772,249 Genotyped loci |
-| Read depth (**gstacks**) | 46 | mean=12.0X |
+| Read depth (**gstacks**) | 46 | mean depth of coverage=12.0X |
 
 ### Datasets (Post-VCF file)
 | Filter | Final Dataset |
@@ -88,6 +88,7 @@ Starting number of reads: 1,506,075,128
 | MAC | 3 |
 | Missingness by SNP | 5% |
 | Missingness by individual | 30% |
+| Mean depth of coverage | 19.0X |
 | Number of individuals | 40 |
 | Number of SNPs | 11,950 |
 
