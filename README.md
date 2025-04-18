@@ -81,13 +81,13 @@ Starting number of reads: 1,506,075,128
 ### Datasets (Post-VCF file)
 | Filter | Final Dataset |
 | --- | --- |
-| Max observed Heterozygosity| 0.6 |
+| Max observed Heterozygosity| 0.5 |
 | Minimum genotype depth | 5 |
 | Minimum genotype quality (Q) | 20 |
 | Maximum depth (SNP) | 28 |
 | MAC | 3 |
-| Missingness by SNP | 5% |
-| Missingness by individual | 30% |
+| Max missingness by SNP | 5% |
+| Max missingness by individual | 33% |
 | Mean depth of coverage | 19.0X |
 | Number of individuals | 40 |
 | Number of SNPs | 11,950 |
