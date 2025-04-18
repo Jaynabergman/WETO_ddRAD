@@ -67,7 +67,7 @@ Downloaded raw reads from nanuq and performed md5sum check (Sept. 27, 2024).
 | Post-VCF file | Geotype depth | SNPflitR | 5 | Gives support for the confidence of a genotype call  |
 | Post-VCF file | Minor allele count (MAC) (locus) | SNPfiltR | 3 | Sets the minimum number of copies for the minor alleles to be found at a locus |
 | Post-VCF file | Missing data (per individual and per SNP) | SNPfiltR | a) <33% <br> b) <5% | Maximum amount of missing data allowed per individual (a) and per SNP (b) |
-| Post-VCF file | Linkage Disequilibrium (LD) | PLINK | 50 5 0.8 | Physical linkage or non-independent assortment leading to the non-random association of alleles at different loci |  
+| Post-VCF file | Linkage Disequilibrium (LD) | PLINK | 50 5 0.8 | Physical linkage or non-independent assortment leading to the non-random association of alleles at different loci <br> window, step, R2 |  
 
 ### Reporting (Pre-VCF file)
 Starting number of reads: 1,506,075,128
