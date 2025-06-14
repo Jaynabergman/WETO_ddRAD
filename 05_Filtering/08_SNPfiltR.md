@@ -26,9 +26,9 @@ See R markdown (*01_VCF_filtering-HO0.5.Rmd*) for the code that was ran and for 
 | --- | --- | --- | --- | --- |
 | 1. | Genotype depth <br> *hard_filter(depth=5)* | Gives support for the confidence of a genotype call | 5 | 28.98% of genotypes fall below a read depth of 5 (converted to NA) |
 | 2. | Geotype qaulity <br> *hard_filter(gq=20)* | Support to minize genotype erorrs | 20 | 0.8% of genotypes fall below a quality score of 20 (converted to NA) |
-| 3. | Allele balance <br> *filter_allele_balance(min.ratio = 0.2, max.ratio = 0.8)* | Gets rid of heterozygous SNPs outside of expected heterozygosity range | 0.2 - 0.8 | 10.79% of heterozygous genotypes fall outside of this range (converted to NA) |
-| 4. | Maximum depth per SNP <br> *max_depth(maxdepth=22)* | Removes excessively high depth which could indicate multilocus contigs | 22 | 4,411,750 SNPs retained |
-| 5. | Minor allele count <br> *min_mac(min.mac = 3)* | Removes potentially artifactually called SNPs | 3 | 49.59% of SNPs fell below a mac of 3 - 2,224,037 SNPs retained |
+| 3. | Allele balance <br> *filter_allele_balance(min.ratio = 0.25, max.ratio = 0.75)* | Gets rid of heterozygous SNPs outside of expected heterozygosity range | 0.25 - 0.75| 20.85% of heterozygous genotypes fall outside of this range (converted to NA) |
+| 4. | Maximum depth per SNP <br> *max_depth(maxdepth=22)* | Removes excessively high depth which could indicate multilocus contigs | 22 | 4,410,477 SNPs retained |
+| 5. | Minor allele count <br> *min_mac(min.mac = 3)* | Removes potentially artifactually called SNPs | 3 | 50.76% of SNPs fell below a mac of 3 - 2,171,753 SNPs retained |
 
 **Dataset with filtering scheme 1: Less missing data**  
 **(This is the dataset that is used for all the downstream population genomic analyses)**
@@ -36,25 +36,13 @@ See R markdown (*01_VCF_filtering-HO0.5.Rmd*) for the code that was ran and for 
 | Step | Filter | Setting | Reported values |
 | --- | --- | --- | --- |
 | 6. | Missing by sample <br> *missing_by_sample* | 0.9 | Two individuals removed <br> DR4 and WETO23-107 |
-| 7. | Missing by SNP <br> *missing_by_snp* | 0.85 | 96.22% of SNPs fell below the cutoff - 84,144 SNPs retained |
+| 7. | Missing by SNP <br> *missing_by_snp* | 0.85 | 96.93% of SNPs fell below the cutoff - 66,625 SNPs retained |
 | 8. | Missing by sample <br> *missing_by_sample* | 0.5 | Four individuals removed <br> AS-3, WETO22-086, WETO23-239, RA-04 |
-| 9. | Missing by SNP <br> *missing_by_snp* | 0.96 | 64.05% of SNPs fell below the cutoff - 8,491 SNPs retained |
-| 10. | Missing by sample <br> *missing_by_sample* | 0.2 | **NO** individuals removed <br> All individuals have less than 20% missing data <br> 38 have less than 10% missing data |
-| 11. | Linkage disequilibrium <br> **DONE IN PLINK** <br> (see 09_Linkage_disequilibrium) | 50 5 0.8 | Retained 5,031 SNPs (removed 3,460 SNPs) |
+| 9. | Missing by SNP <br> *missing_by_snp* | 0.95 | 66.8% of SNPs fell below the cutoff - 22,118 SNPs retained |
+| 10. | Missing by sample <br> *missing_by_sample* | 0.33 | **NO** individuals removed <br> All individuals have less than 33% missing data <br> 38 have less than 15% missing data |
+| 11. | Linkage disequilibrium <br> **DONE IN PLINK** <br> (see 09_Linkage_disequilibrium) | 50 5 0.8 | Retained 11,950 SNPs (removed 10,168 SNPs) |
   
-**Number of SNPs retained:** 5,031  
+**Number of SNPs retained:** 11,950  
 **Number of individuals:** 40  
   
-  
-**Dataset with filtering scheme 2: More missing data**  
-
-| Step | Filter | Setting | Reported values |
-| --- | --- | --- | --- |
-| 6. | Missing by sample <br> *missing_by_sample* | 0.9 | Two individuals removed <br> DR4 and WETO23-107 |
-| 7. | Missing by SNP <br> *missing_by_snp* | 0.9 | 99.2% of SNPs fell below the cutoff - 17,704 SNPs retained |
-| 8. | Missing by sample <br> *missing_by_sample* | 0.55 | All individuals less than 55% missing data <br> 38 have less than 15% missing data |
-| 9. | Linkage disequilibrium <br> **DONE IN PLINK** | 50 5 0.8 | Retained 10,342 SNPs (removed 7,362 SNPs) |
-  
-**Number of SNPs retained:** 10,342  
-**Number of individuals:** 44  
 
