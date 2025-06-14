@@ -12,7 +12,7 @@
 - **Library prep:** Sent to Plateforme d’Analyses Génomiques of the Institut de Biologie Intégrative et des Systèmes (IBIS, Universite ́Laval, Quebec, Canada)
 - **Sequencing Info:** Paired-end sequencing on an Illumina NovaSeq 6000 at Centre d’expertise et de service Génome Québec at McGill University in Montreal, QC
 <br>
-
+#### Before Filtering
 - **Number of individuals sequenced:** 46 (inclusive of one positive control - i.e. replicate). Plus 2 negative controls.
 - **Number of sites:** 39 breeding sites
 - **Range of individuals per site:** 1 to 5 (one site with 3 individuals, one with 5 individuals)
