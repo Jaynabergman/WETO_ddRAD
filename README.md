@@ -85,7 +85,7 @@ Starting number of reads: 1,506,075,128
 | --- | --- |
 | Max observed Heterozygosity| 0.5 |
 | Minimum genotype depth | 5 |
-| Maximum genotype depth | 28 |
+| Maximum genotype depth | 22 |
 | Minimum genotype quality (Q) | 20 |
 | MAC | 3 |
 | Max missingness by SNP | 5% |
