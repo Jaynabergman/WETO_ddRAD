@@ -53,4 +53,4 @@ Folder called populations_HO-0.6 (one for each observed Het setting) (important 
 
 ## NOTES
 
-We ran populations while testing different values of max heterozygosity (0.6, 0.7, 0.8). Regardless of the max observed heterozygosity setting, we got the same clustering patterns of the individuals (see sup map for PCA plots).
+We ran populations while testing different values of max heterozygosity (0.5, 0.6, 0.7, 0.8). Regardless of the max observed heterozygosity setting, we got the same clustering patterns of the individuals (see sup map for PCA plots). Used 0.5 as the final value.
